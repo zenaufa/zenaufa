@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zen Aufa Bahalwan | Portfolio</title>
+
+    <!-- Fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Overpass:wght@100;200;300;400;500;600;700;800;900&display=swap" as="style">
+    <link rel="preload" href="https://fonts.gstatic.com/s/overpass/v12/qFda35WCmI96Ajtm83upeyoaX6QPnlo6_PPbPpqK.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Overpass:wght@100;200;300;400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Overpass:wght@100;200;300;400;500;600;700;800;900&display=swap">
+    </noscript>
+    
+    <style>
+        /* Font loading optimization */
+        @font-face {
+            font-family: 'Overpass';
+            font-style: normal;
+            font-weight: 100 900;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/overpass/v12/qFda35WCmI96Ajtm83upeyoaX6QPnlo6_PPbPpqK.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Overpass', sans-serif;
+            line-height: 1.7;
+            color: #ffffff;
+            background-color: #000000;
+            overflow-x: hidden;
+        }
+
+        /* Layout */
+        .container {
+            width: 80%;
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 15px 0 0px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 4% 0;
+            background-image: url('/uploads/homepage/110253719_1211869562486938_8612718930472375359_o.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1;
+        }
+
+        .hero-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 4rem;
+            width: 100%;
+        }
+
+        .hero-text {
+            flex: 1;
+            animation: slideLeft 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .hero-text h1 {
+            font-size: 50px;
+            margin-bottom: 1rem;
+            animation: slideTop 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .hero-image {
+            flex: 1;
+            animation: slideRight 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Scroll Arrow */
+        .scroll-arrow {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-arrow img {
+            width: 40px;
+            height: 40px;
+            filter: brightness(0) invert(1);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+
+        /* Experience Section */
+        .experience-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            gap: 4rem;
+        }
+
+        /* Add specific style for the last item in each section */
+        .section .experience-item:last-child {
+            margin-bottom: 5px;  /* Reduced margin for the last item */
+        }
+
+        .experience-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .experience-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 50%;
+        }
+
+        .experience-image {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 45%;
+        }
+
+        .experience-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .experience-image img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            opacity: 1;
+            transform: none;
+            transition: none;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        /* Animated Text */
+        .animated-text {
+            min-height: 2em;
+            margin: 1rem 0;
+            font-size: 1.2rem;
+            opacity: 0;
+            animation: initialFadeIn 1s ease-out forwards;
+            animation-delay: 1s;
+        }
+
+        .animated-text.changing {
+            animation: textChange 1.5s ease-in-out;
+        }
+
+        @keyframes initialFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes textChange {
+            0% {
+                opacity: 1;
+            }
+            20% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            80% {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Particles Background */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 3;
+        }
+
+        /* Text Styles */
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        p {
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        /* Animations */
+        @keyframes slideLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideTop {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .experience-item {
+                flex-direction: column;
+                align-items: stretch;
+                margin-bottom: 6rem;
+                gap: 1rem;
+            }
+
+            .experience-text {
+                text-align: center;
+                max-width: 100%;
+            }
+
+            .experience-image {
+                margin: 0.5rem 0;
+                min-width: 100%;
+            }
+
+            .container {
+                width: 90%;
+            }
+
+            .hero-text h1 {
+                font-size: 40px;
+            }
+
+            .section {
+                padding: 15px 0 0px;
+            }
+
+            .section-header {
+                margin-bottom: 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div id="particles-js"></div>
+        <div class="container content-wrapper">
+            <div class="hero-content">
+                <div class="hero-image">
+                    <span class="et_pb_image_wrap"><img fetchpriority="high" decoding="async" width="829" height="1024" src="/uploads/2025/03/Screenshot-2025-03-19-at-06.07.43-829x1024.webp" alt="Zen Aufa Bahalwan Profile" title="Screenshot" srcset="/uploads/2025/03/Screenshot-2025-03-19-at-06.07.43-829x1024.webp 829w, /uploads/2025/03/Screenshot-2025-03-19-at-06.07.43-480x593.webp 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) 829px, 100vw" class="wp-image-954"></span>
+                </div>
+                <div class="hero-text">
+                    <h1>Zen Aufa Bahalwan</h1>
+                    <div class="animated-text" id="role-text"></div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-arrow">
+            <img src="/uploads/homepage/caret-down.png" alt="Scroll Down">
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section" id="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2>Experience</h2>
+            </div>
+
+            <!-- Tech Delivery Lead - Okadoc -->
+            <div class="experience-item">
+                <div class="experience-text">
+                    <h3>Tech Delivery Lead</h3>
+                    <p>Okadoc, UAE</p>
+                    <p>March 2022 – Present</p>
+                    <p>Leading development squads, facilitating high-level discussions, and ensuring efficient delivery processes. Collaborating with leadership, optimizing development workflows, conducting usability and API testing, and acting as a Product Owner for select products.</p>
+                </div>
+                <div class="experience-image">
+                    <span class="et_pb_image_wrap"><picture><source srcset="/uploads/2025/03/IMG_20240314_224245_294.jpg.webp 1440w, /uploads/2025/03/IMG_20240314_224245_294-1280x1108.jpg.webp 1280w, /uploads/2025/03/IMG_20240314_224245_294-980x849.jpg.webp 980w, /uploads/2025/03/IMG_20240314_224245_294-480x416.jpg.webp 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) and (max-width: 1280px) 1280px, (min-width: 1281px) 1440px, 100vw" type="image/webp"><img decoding="async" width="1440" height="1247" src="/uploads/2025/03/IMG_20240314_224245_294.jpg" alt="" title="IMG_20240314_224245_294" srcset="/uploads/2025/03/IMG_20240314_224245_294.jpg 1440w, /uploads/2025/03/IMG_20240314_224245_294-1280x1108.jpg 1280w, /uploads/2025/03/IMG_20240314_224245_294-980x849.jpg 980w, /uploads/2025/03/IMG_20240314_224245_294-480x416.jpg 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) and (max-width: 1280px) 1280px, (min-width: 1281px) 1440px, 100vw" class="wp-image-951" data-eio="p"></picture></span>
+                </div>
+            </div>
+
+            <!-- Agile Coach - Ekipa -->
+            <div class="experience-item">
+                <div class="experience-text">
+                    <h3>Agile Coach</h3>
+                    <p>PT Ekipa Agile Consultancy</p>
+                    <p>March 2021 – March 2022</p>
+                    <p>Supporting banking industry clients in adopting and improving Agile ways of working within IT and business teams. Implementing OKRs, conducting squad health checks, and facilitating quarterly top management meetings.</p>
+                </div>
+                <div class="experience-image">
+                    <span class="et_pb_image_wrap"><img decoding="async" src="/uploads/2025/03/IMG_0589-1024x768.webp" alt="" title="IMG_0589"></span>
+                </div>
+            </div>
+
+            <!-- Scrum Master Lead - LinkAja -->
+            <div class="experience-item">
+                <div class="experience-text">
+                    <h3>Scrum Master Lead</h3>
+                    <p>LinkAja Indonesia</p>
+                    <p>September 2019 – March 2021</p>
+                    <p>Lead technology team cultural & operational transformation through SDLC implementation & experimentation breakdown into multiple phases (non-squad, to multiple squad by using nexus framework, to 7 squads using spotify model, then continued with expanded into 18 squads) to support aggressive business growth plan, and always encouraging inspection and adaptation to ensure continuous improvement on process and workflow.</p>
+                </div>
+                <div class="experience-image">
+                    <span class="et_pb_image_wrap"><picture><source srcset="/uploads/2021/03/photo_2021-03-02-03.44.28-1024x768.jpeg.webp 1024w, /uploads/2021/03/photo_2021-03-02-03.44.28-980x735.jpeg.webp 980w, /uploads/2021/03/photo_2021-03-02-03.44.28-480x360.jpeg.webp 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw" type="image/webp"><img decoding="async" width="1024" height="768" src="/uploads/2021/03/photo_2021-03-02-03.44.28-1024x768.jpeg" alt="" title="photo_2021-03-02-03.44.28" srcset="/uploads/2021/03/photo_2021-03-02-03.44.28-1024x768.jpeg 1024w, /uploads/2021/03/photo_2021-03-02-03.44.28-980x735.jpeg 980w, /uploads/2021/03/photo_2021-03-02-03.44.28-480x360.jpeg 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw" class="wp-image-11" data-eio="p"></picture></span>
+                </div>
+            </div>
+
+            <!-- Scrum Master - Ekipa -->
+            <div class="experience-item">
+                <div class="experience-text">
+                    <h3>Scrum Master</h3>
+                    <p>Ekipa Agile Consultancy</p>
+                    <p>January 2019 – September 2019</p>
+                    <p>Contribute on Ekipa's client digital transformation process, and act as Scrum Master by working together with client's team and management to implement Scrum Framework, ensuring continuous improvement for process and workflow, and helping them to find their own way of working.</p>
+                </div>
+                <div class="experience-image">
+                    <span class="et_pb_image_wrap"><picture><source srcset="/uploads/2021/03/58627258_861773094163255_1697284428708970496_o-1024x498.jpeg.webp 1024w, /uploads/2021/03/58627258_861773094163255_1697284428708970496_o-980x476.jpeg.webp 980w, /uploads/2021/03/58627258_861773094163255_1697284428708970496_o-480x233.jpeg.webp 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw" type="image/webp"><img decoding="async" width="1024" height="498" src="/uploads/2021/03/58627258_861773094163255_1697284428708970496_o-1024x498.jpeg" alt="" title="58627258_861773094163255_1697284428708970496_o" srcset="/uploads/2021/03/58627258_861773094163255_1697284428708970496_o-1024x498.jpeg 1024w, /uploads/2021/03/58627258_861773094163255_1697284428708970496_o-980x476.jpeg 980w, /uploads/2021/03/58627258_861773094163255_1697284428708970496_o-480x233.jpeg 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw" class="wp-image-12" data-eio="p"></picture></span>
+                </div>
+            </div>
+
+            <!-- Scrum Master - MatahariMall -->
+            <div class="experience-item">
+                <div class="experience-text">
+                    <h3>Scrum Master</h3>
+                    <p>MatahariMall.com</p>
+                    <p>August 2017 – December 2018</p>
+                    <p>Act as Scrum Master by helping the team on finding their own way of working, removing blocker as needed, stakeholder management, and negotiation to find the balance between business needs and team capacity.</p>
+                </div>
+                <div class="experience-image">
+                    <span class="et_pb_image_wrap"><picture><source srcset="/uploads/2021/03/30052458_616093635397870_7153621626247636849_o-1024x768.jpeg.webp 1024w, /uploads/2021/03/30052458_616093635397870_7153621626247636849_o-980x735.jpeg.webp 980w, /uploads/2021/03/30052458_616093635397870_7153621626247636849_o-480x360.jpeg.webp 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw" type="image/webp"><img decoding="async" width="1024" height="768" src="/uploads/2021/03/30052458_616093635397870_7153621626247636849_o-1024x768.jpeg" alt="" title="30052458_616093635397870_7153621626247636849_o" srcset="/uploads/2021/03/30052458_616093635397870_7153621626247636849_o-1024x768.jpeg 1024w, /uploads/2021/03/30052458_616093635397870_7153621626247636849_o-980x735.jpeg 980w, /uploads/2021/03/30052458_616093635397870_7153621626247636849_o-480x360.jpeg 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw" class="wp-image-13" data-eio="p"></picture></span>
+                </div>
+            </div>
+
+            <!-- Product Owner - Livaza -->
+            <div class="experience-item">
+                <div class="experience-text">
+                    <h3>Product Owner</h3>
+                    <p>Livaza.com</p>
+                    <p>October 2016 – August 2017</p>
+                    <p>Act as the Product Owner of Livaza.com, and help the tech team to develop product that can fulfill customer needs and improving the product so we can capture interest of the customer.</p>
+                </div>
+                <div class="experience-image">
+                    <span class="et_pb_image_wrap"><picture><source srcset="/uploads/2021/03/16178657_404980159842553_7400643207369749568_o-1024x768.jpeg.webp 1024w, /uploads/2021/03/16178657_404980159842553_7400643207369749568_o-980x735.jpeg.webp 980w, /uploads/2021/03/16178657_404980159842553_7400643207369749568_o-480x360.jpeg.webp 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw" type="image/webp"><img decoding="async" width="1024" height="768" src="/uploads/2021/03/16178657_404980159842553_7400643207369749568_o-1024x768.jpeg" alt="" title="16178657_404980159842553_7400643207369749568_o" srcset="/uploads/2021/03/16178657_404980159842553_7400643207369749568_o-1024x768.jpeg 1024w, /uploads/2021/03/16178657_404980159842553_7400643207369749568_o-980x735.jpeg 980w, /uploads/2021/03/16178657_404980159842553_7400643207369749568_o-480x360.jpeg 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw" class="wp-image-14" data-eio="p"></picture></span>
+                </div>
+            </div>
+
+            <!-- Android Service Technician -->
+            <div class="experience-item">
+                <div class="experience-text">
+                    <h3>Android Service Technician</h3>
+                    <p>Kubikuz Droid</p>
+                    <p>February 2012 – June 2016</p>
+                    <p>Repairing android software problems, upgrading android phone software version, and customizing client android phones at client request.</p>
+                </div>
+                <div class="experience-image">
+                    <span class="et_pb_image_wrap"><picture><source srcset="/uploads/2021/03/37500598_681500432190523_6196222216972009472_o-1024x1024.jpeg.webp 1024w, /uploads/2021/03/37500598_681500432190523_6196222216972009472_o-980x980.jpeg.webp 980w, /uploads/2021/03/37500598_681500432190523_6196222216972009472_o-480x480.jpeg.webp 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw" type="image/webp"><img decoding="async" width="1024" height="1024" src="/uploads/2021/03/37500598_681500432190523_6196222216972009472_o-1024x1024.jpeg" alt="" title="37500598_681500432190523_6196222216972009472_o" srcset="/uploads/2021/03/37500598_681500432190523_6196222216972009472_o-1024x1024.jpeg 1024w, /uploads/2021/03/37500598_681500432190523_6196222216972009472_o-980x980.jpeg 980w, /uploads/2021/03/37500598_681500432190523_6196222216972009472_o-480x480.jpeg 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw" class="wp-image-15" data-eio="p"></picture></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training and Certification Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Training and Certification</h2>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-text">
+                    <h3>Agile Coaching (ICP-ACC)</h3>
+                    <p>ICAgile</p>
+                    <p>2024</p>
+                </div>
+                <div class="experience-image">
+                    <span class="et_pb_image_wrap"><img loading="lazy" decoding="async" width="1024" height="790" src="/uploads/2025/03/Screenshot-2025-03-19-at-06.02.59-1024x790.webp" alt="Tech Delivery Lead Experience" title="Screenshot" srcset="/uploads/2025/03/Screenshot-2025-03-19-at-06.02.59-980x756.webp 980w, /uploads/2025/03/Screenshot-2025-03-19-at-06.02.59-480x370.webp 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw" class="wp-image-952"></span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-text">
+                    <h3>Professional Scrum Master II</h3>
+                    <p>Scrum.org</p>
+                    <p>2022</p>
+                </div>
+                <div class="experience-image">
+                    <span class="et_pb_image_wrap"><picture><source srcset="/uploads/2022/06/1651207617878-980x752.jpeg.webp 980w, /uploads/2022/06/1651207617878-480x368.jpeg.webp 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw" type="image/webp"><img decoding="async" width="1024" height="786" src="/uploads/2022/06/1651207617878-1024x786.jpeg" alt="" title="1651207617878" srcset="/uploads/2022/06/1651207617878-980x752.jpeg 980w, /uploads/2022/06/1651207617878-480x368.jpeg 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw" class="wp-image-270" data-eio="p"></picture></span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-text">
+                    <h3>Registered Scrum Master</h3>
+                    <p>ScrumInc</p>
+                    <p>2021</p>
+                </div>
+                <div class="experience-image">
+                    <span class="et_pb_image_wrap"><picture><source srcset="/uploads/2022/06/1622427510072.jpeg.webp 800w, /uploads/2022/06/1622427510072-480x371.jpeg.webp 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) 800px, 100vw" type="image/webp"><img decoding="async" width="800" height="618" src="/uploads/2022/06/1622427510072.jpeg" alt="" title="1622427510072" srcset="/uploads/2022/06/1622427510072.jpeg 800w, /uploads/2022/06/1622427510072-480x371.jpeg 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) 800px, 100vw" class="wp-image-271" data-eio="p"></picture></span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-text">
+                    <h3>Registered Scrum Product Owner</h3>
+                    <p>ScrumInc</p>
+                    <p>2021</p>
+                </div>
+                <div class="experience-image">
+                    <span class="et_pb_image_wrap"><picture><source srcset="/uploads/2022/06/1622427510658-1.jpeg.webp 800w, /uploads/2022/06/1622427510658-1-480x371.jpeg.webp 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) 800px, 100vw" type="image/webp"><img decoding="async" width="800" height="618" src="/uploads/2022/06/1622427510658-1.jpeg" alt="" title="1622427510658" srcset="/uploads/2022/06/1622427510658-1.jpeg 800w, /uploads/2022/06/1622427510658-1-480x371.jpeg 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) 800px, 100vw" class="wp-image-273" data-eio="p"></picture></span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-text">
+                    <h3>Professional Scrum Master I</h3>
+                    <p>Scrum.org</p>
+                    <p>2021</p>
+                </div>
+                <div class="experience-image">
+                    <span class="et_pb_image_wrap"><picture><source srcset="/uploads/2022/02/Screen-Shot-2022-02-05-at-12.08.48-980x757.png.webp 980w, /uploads/2022/02/Screen-Shot-2022-02-05-at-12.08.48-480x371.png.webp 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw" type="image/webp"><img decoding="async" width="1024" height="791" src="/uploads/2022/02/Screen-Shot-2022-02-05-at-12.08.48-1024x791.png" alt="" title="Screen Shot 2022-02-05 at 12.08.48" srcset="/uploads/2022/02/Screen-Shot-2022-02-05-at-12.08.48-980x757.png 980w, /uploads/2022/02/Screen-Shot-2022-02-05-at-12.08.48-480x371.png 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw" class="wp-image-219" data-eio="p"></picture></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Activities</h2>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-text">
+                    <h3>Organizing Committee</h3>
+                    <p>DevOpsDays Jakarta</p>
+                    <p>2020</p>
+                </div>
+                <div class="experience-image">
+                    <span class="et_pb_image_wrap"><picture><source srcset="/uploads/2021/03/ES4GeYcUMAEj-fK-1024x683.jpeg.webp 1024w, /uploads/2021/03/ES4GeYcUMAEj-fK-980x654.jpeg.webp 980w, /uploads/2021/03/ES4GeYcUMAEj-fK-480x320.jpeg.webp 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw" type="image/webp"><img decoding="async" width="1024" height="683" src="/uploads/2021/03/ES4GeYcUMAEj-fK-1024x683.jpeg" alt="" title="ES4GeYcUMAEj-fK" srcset="/uploads/2021/03/ES4GeYcUMAEj-fK-1024x683.jpeg 1024w, /uploads/2021/03/ES4GeYcUMAEj-fK-980x654.jpeg 980w, /uploads/2021/03/ES4GeYcUMAEj-fK-480x320.jpeg 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw" class="wp-image-20" data-eio="p"></picture></span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-text">
+                    <h3>Participants</h3>
+                    <p>Scrum Alliance Agile Coaching Retreat Kuala Lumpur Malaysia</p>
+                    <p>2019</p>
+                </div>
+                <div class="experience-image">
+                    <span class="et_pb_image_wrap"><picture><source srcset="/uploads/2021/03/74470889_996641824009714_5304678605089931264_o-1024x987.jpeg.webp 1024w, /uploads/2021/03/74470889_996641824009714_5304678605089931264_o-980x945.jpeg.webp 980w, /uploads/2021/03/74470889_996641824009714_5304678605089931264_o-480x463.jpeg.webp 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw" type="image/webp"><img decoding="async" width="1024" height="987" src="/uploads/2021/03/74470889_996641824009714_5304678605089931264_o-1024x987.jpeg" alt="" title="74470889_996641824009714_5304678605089931264_o" srcset="/uploads/2021/03/74470889_996641824009714_5304678605089931264_o-1024x987.jpeg 1024w, /uploads/2021/03/74470889_996641824009714_5304678605089931264_o-980x945.jpeg 980w, /uploads/2021/03/74470889_996641824009714_5304678605089931264_o-480x463.jpeg 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw" class="wp-image-21" data-eio="p"></picture></span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-text">
+                    <h3>Organizing Committee</h3>
+                    <p>Agile Impact Conference</p>
+                    <p>2018</p>
+                </div>
+                <div class="experience-image">
+                    <span class="et_pb_image_wrap"><picture><source srcset="/uploads/2021/03/44913264532_24985544a1_k-980x653.jpg.webp 980w, /uploads/2021/03/44913264532_24985544a1_k-480x320.jpg.webp 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw" type="image/webp"><img decoding="async" width="1024" height="683" src="/uploads/2021/03/44913264532_24985544a1_k-1024x683.jpg" alt="" title="44913264532_24985544a1_k" srcset="/uploads/2021/03/44913264532_24985544a1_k-980x653.jpg 980w, /uploads/2021/03/44913264532_24985544a1_k-480x320.jpg 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw" class="wp-image-22" data-eio="p"></picture></span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-text">
+                    <h3>Organizing Committee</h3>
+                    <p>DevOpsDays Jakarta</p>
+                    <p>2018</p>
+                </div>
+                <div class="experience-image">
+                    <span class="et_pb_image_wrap"><picture><source srcset="/uploads/2021/03/39921998630_0771b15668_k-980x653.jpg.webp 980w, /uploads/2021/03/39921998630_0771b15668_k-480x320.jpg.webp 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw" type="image/webp"><img decoding="async" width="1024" height="683" src="/uploads/2021/03/39921998630_0771b15668_k-1024x683.jpg" alt="" title="39921998630_0771b15668_k" srcset="/uploads/2021/03/39921998630_0771b15668_k-980x653.jpg 980w, /uploads/2021/03/39921998630_0771b15668_k-480x320.jpg 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw" class="wp-image-23" data-eio="p"></picture></span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-text">
+                    <h3>Organizing Committee</h3>
+                    <p>Agile Indonesia Conference</p>
+                    <p>2017</p>
+                </div>
+                <div class="experience-image">
+                    <span class="et_pb_image_wrap"><picture><source srcset="/uploads/2021/03/20024197_494781024195799_7720302361075107942_o-980x653.jpeg.webp 980w, /uploads/2021/03/20024197_494781024195799_7720302361075107942_o-480x320.jpeg.webp 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw" type="image/webp"><img decoding="async" width="1024" height="683" src="/uploads/2021/03/20024197_494781024195799_7720302361075107942_o-1024x683.jpeg" alt="" title="20024197_494781024195799_7720302361075107942_o" srcset="/uploads/2021/03/20024197_494781024195799_7720302361075107942_o-980x653.jpeg 980w, /uploads/2021/03/20024197_494781024195799_7720302361075107942_o-480x320.jpeg 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw" class="wp-image-24" data-eio="p"></picture></span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-text">
+                    <h3>Facilitator (for Beginner Level)</h3>
+                    <p>Google Indonesia Android Kejar</p>
+                    <p>2017</p>
+                </div>
+                <div class="experience-image">
+                    <span class="et_pb_image_wrap"><picture><source srcset="/uploads/2021/03/22339480_530618887278679_8343948139671591405_o-1024x579.jpeg.webp 1024w, /uploads/2021/03/22339480_530618887278679_8343948139671591405_o-980x554.jpeg.webp 980w, /uploads/2021/03/22339480_530618887278679_8343948139671591405_o-480x272.jpeg.webp 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw" type="image/webp"><img decoding="async" width="1024" height="579" src="/uploads/2021/03/22339480_530618887278679_8343948139671591405_o-1024x579.jpeg" alt="" title="22339480_530618887278679_8343948139671591405_o" srcset="/uploads/2021/03/22339480_530618887278679_8343948139671591405_o-1024x579.jpeg 1024w, /uploads/2021/03/22339480_530618887278679_8343948139671591405_o-980x554.jpeg 980w, /uploads/2021/03/22339480_530618887278679_8343948139671591405_o-480x272.jpeg 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw" class="wp-image-25" data-eio="p"></picture></span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-text">
+                    <h3>Public Relation and Tournament Organizer</h3>
+                    <p>PKMN-id.com</p>
+                    <p>2016 – 2018</p>
+                </div>
+                <div class="experience-image">
+                    <span class="et_pb_image_wrap"><picture><source srcset="/uploads/2021/03/14500296_347802672226969_5444943720186505152_o-980x735.jpeg.webp 980w, /uploads/2021/03/14500296_347802672226969_5444943720186505152_o-480x360.jpeg.webp 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw" type="image/webp"><img decoding="async" width="1024" height="768" src="/uploads/2021/03/14500296_347802672226969_5444943720186505152_o-1024x768.jpeg" alt="" title="14500296_347802672226969_5444943720186505152_o" srcset="/uploads/2021/03/14500296_347802672226969_5444943720186505152_o-980x735.jpeg 980w, /uploads/2021/03/14500296_347802672226969_5444943720186505152_o-480x360.jpeg 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw" class="wp-image-26" data-eio="p"></picture></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
+    <script>
+        // Defer script execution until DOM is ready
+        window.addEventListener('DOMContentLoaded', function() {
+            // Initialize particles with optimized settings
+            particlesJS('particles-js', {
+                particles: {
+                    number: {
+                        value: 15, // Reduced from 20
+                        density: {
+                            enable: true,
+                            value_area: 800 // Increased from 435
+                        }
+                    },
+                    color: {
+                        value: "#FFFFFF"
+                    },
+                    shape: {
+                        type: "circle"
+                    },
+                    opacity: {
+                        value: 0.1,
+                        random: false
+                    },
+                    size: {
+                        value: 12, // Reduced from 16
+                        random: true
+                    },
+                    line_linked: {
+                        enable: false
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2, // Reduced from 4
+                        direction: "none",
+                        random: false,
+                        straight: false,
+                        out_mode: "out"
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: {
+                            enable: false
+                        },
+                        onclick: {
+                            enable: false
+                        },
+                        resize: true
+                    }
+                },
+                retina_detect: false // Disabled for better performance
+            });
+
+            // Optimize scroll handling with requestAnimationFrame
+            let ticking = false;
+            const experienceItems = document.querySelectorAll('.experience-item');
+            
+            function handleScrollAnimation() {
+                experienceItems.forEach(item => {
+                    const rect = item.getBoundingClientRect();
+                    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                    if (rect.top <= windowHeight * 0.95) {
+                        item.classList.add('visible');
+                    }
+                });
+                ticking = false;
+            }
+
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    window.requestAnimationFrame(function() {
+                        handleScrollAnimation();
+                    });
+                    ticking = true;
+                }
+            }, { passive: true });
+
+            // Initial check for elements in viewport
+            handleScrollAnimation();
+
+            // Smooth scroll with requestAnimationFrame
+            document.querySelector('.scroll-arrow').addEventListener('click', function(e) {
+                e.preventDefault();
+                const experienceSection = document.getElementById('experience');
+                const start = window.pageYOffset;
+                const target = experienceSection.offsetTop;
+                const distance = target - start;
+                const duration = 800;
+                let startTime = null;
+
+                function animation(currentTime) {
+                    if (startTime === null) startTime = currentTime;
+                    const timeElapsed = currentTime - startTime;
+                    const progress = Math.min(timeElapsed / duration, 1);
+                    const ease = easeInOutCubic(progress);
+                    
+                    window.scrollTo(0, start + (distance * ease));
+                    
+                    if (timeElapsed < duration) {
+                        requestAnimationFrame(animation);
+                    }
+                }
+
+                function easeInOutCubic(t) {
+                    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+                }
+
+                requestAnimationFrame(animation);
+            });
+
+            // Optimize role animation
+            const roles = [
+                "Tech Delivery Lead at Okadoc, UAE",
+                "Certified Professional Scrum Master",
+                "Was an Agile Coach at Ekipa",
+                "Was a Scrum Master at LinkAja",
+                "Was a Product Owner at Livaza.com"
+            ];
+
+            let currentRole = 0;
+            const roleElement = document.getElementById('role-text');
+
+            function updateRole() {
+                requestAnimationFrame(() => {
+                    roleElement.classList.add('changing');
+                    
+                    setTimeout(() => {
+                        currentRole = (currentRole + 1) % roles.length;
+                        roleElement.textContent = roles[currentRole];
+                        
+                        requestAnimationFrame(() => {
+                            roleElement.classList.remove('changing');
+                        });
+                    }, 400);
+                });
+            }
+
+            // Initial role
+            roleElement.textContent = roles[0];
+            
+            // Start cycling after initial delay with reduced frequency
+            setTimeout(() => {
+                setInterval(updateRole, 4000); // Increased from 3500 to reduce CPU usage
+            }, 400);
+        });
+    </script>
+</body>
+</html>
