@@ -7,6 +7,10 @@
   <a href="https://zenaufa.id">
     <img src="https://github.com/LelouchFR/skill-icons/blob/main/assets/chromedevtools.svg" | width=50/>
   </a>
+</p>
+  
+<h2> My badges </h2>
+<p align="center">
   <!--START_SECTION:badges-->
 <a href="https://www.credly.com/badges/08a2fe53-e7ba-44f7-a2ab-a7e8932c0166" title="Certified SAFe® 6 Agilist"><img src="https://images.credly.com/size/80x80/images/3e987079-3013-4359-9ad3-578c0b864e3d/image.png" alt="Certified SAFe® 6 Agilist" width="80" height="80"></a>
 <a href="https://www.credly.com/badges/6591b8e3-0231-4895-938b-04a93aeaf121" title="Elements of Agile in Miro"><img src="https://images.credly.com/size/80x80/images/323b677d-8c94-431f-8019-e6017ac744e6/blob" alt="Elements of Agile in Miro" width="80" height="80"></a>
