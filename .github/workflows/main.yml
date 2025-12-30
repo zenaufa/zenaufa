@@ -1,0 +1,12 @@
+name: Update Badges
+on:
+  schedule:
+    - cron: "0 2 * * *" # Runs every day at 2 AM
+  workflow_dispatch: # Allows you to run it manually
+jobs:
+  update-badges:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: pemtajo/badge-readme@main
+        with:
+          CREDLY_USER: zen-aufa-bahalwan
