@@ -7,4 +7,6 @@
   <a href="https://zenaufa.id">
     <img src="https://github.com/LelouchFR/skill-icons/blob/main/assets/chromedevtools.svg" | width=50/>
   </a>
+  <!--START_SECTION:badges-->
+  <!--END_SECTION:badges-->
 </p>
