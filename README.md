@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/dc7b176f-eae7-41aa-a763-3e03d1a1d7ed"/>
+  <img src="https://github.com/user-attachments/assets/ae7848a1-2ba0-432a-81af-3782ce678352"/>
   <br>
   <a href="https://www.linkedin.com/in/zenaufa">
     <img src="https://github.com/tandpfun/skill-icons/raw/main/icons/LinkedIn.svg" | width=50/>
