@@ -12,7 +12,7 @@
 <h2> My badges </h2>
 <p align="center">
   <!--START_SECTION:badges-->
-<a href="https://www.credly.com/badges/08a2fe53-e7ba-44f7-a2ab-a7e8932c0166" title="Certified SAFe® 6 Agilist"><img src="https://github.com/user-attachments/assets/dbc1d339-c1a1-4fe4-b882-da380f0aad2f" alt="Certified SAFe® 6 Agilist" width="80" height="83"></a>
+<a href="https://www.credly.com/badges/08a2fe53-e7ba-44f7-a2ab-a7e8932c0166" title="Certified SAFe® 6 Agilist"><img src="https://github.com/user-attachments/assets/dbc1d339-c1a1-4fe4-b882-da380f0aad2f" alt="Certified SAFe® 6 Agilist" width="77" height="80"></a>
 <a href="https://www.credly.com/badges/6591b8e3-0231-4895-938b-04a93aeaf121" title="Elements of Agile in Miro"><img src="https://images.credly.com/size/80x80/images/323b677d-8c94-431f-8019-e6017ac744e6/blob" alt="Elements of Agile in Miro" width="80" height="80"></a>
 <a href="https://www.credly.com/badges/05f86cdd-3024-4f9a-8076-3259235c17ee" title="Miro essentials"><img src="https://images.credly.com/size/80x80/images/1245c82c-67ca-4365-9515-74c289d5fd6d/image.png" alt="Miro essentials" width="80" height="80"></a>
 <a href="https://www.credly.com/badges/c1b967f1-a754-4f97-80b0-6c8dcba7d7da" title="Analyze and Visualize Looker Data Skill Badge"><img src="https://images.credly.com/size/80x80/images/17bffe41-23fb-4004-a5c3-ea46b6c6ed76/image.png" alt="Analyze and Visualize Looker Data Skill Badge" width="80" height="80"></a>
