@@ -490,7 +490,7 @@
         }
 
         .carousel-container:hover {
-            transform: translateY(-10px) scale(1.02);
+            transform: scale(1.03);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
         }
 
@@ -589,7 +589,7 @@
         }
 
         .hero-image img:hover {
-            transform: translateY(-10px) scale(1.02);
+            transform: scale(1.03);
             box-shadow: 0 20px 40px rgba(124, 58, 237, 0.3);
         }
 
@@ -1254,31 +1254,6 @@
                 vignetteOverlay.style.opacity = opacity;
             }, { passive: true });
 
-            // ========== 3D TILT EFFECT ON CAROUSELS & HERO ==========
-            const tiltElements = document.querySelectorAll('.carousel-container, .hero-image img');
-            tiltElements.forEach(el => {
-                el.addEventListener('mousemove', (e) => {
-                    const rect = el.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    const rotateX = (y - centerY) / 20; // Reduced sensitivity for larger container
-                    const rotateY = (centerX - x) / 20;
-
-                    // Remove transition for instant follow
-                    el.style.transition = 'none';
-                    el.style.transform = `translateY(-10px) scale(1.02) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-                    el.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.15)';
-                });
-
-                el.addEventListener('mouseleave', () => {
-                    // Restore transition for smooth return
-                    el.style.transition = 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease';
-                    el.style.transform = '';
-                    el.style.boxShadow = '';
-                });
-            });
 
             // ========== PARTICLE SYSTEM WITH MOUSE REPULSION ==========
             let particlesLoaded = false;
@@ -1520,21 +1495,12 @@
                 const dotsContainer = wrapper.querySelector('.carousel-dots');
                 let currentIndex = 0;
 
-                // Create Dots
-                slides.forEach((_, index) => {
-                    const dot = document.createElement('div');
-                    dot.classList.add('dot');
-                    if (index === 0) dot.classList.add('active');
-                    dot.addEventListener('click', () => goToSlide(index));
-                    dotsContainer.appendChild(dot);
-                });
-
-                const dots = Array.from(dotsContainer.children);
+                let dots = [];
 
                 function updateSlides() {
                     track.style.transform = `translateX(-${currentIndex * 100}%)`;
                     dots.forEach(d => d.classList.remove('active'));
-                    dots[currentIndex].classList.add('active');
+                    if (dots[currentIndex]) dots[currentIndex].classList.add('active');
 
                     // Mark active slide for color observer
                     slides.forEach(s => s.classList.remove('active-slide'));
@@ -1554,8 +1520,26 @@
                     updateSlides();
                 }
 
-                nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
-                prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+                // Create Dots & Listeners if more than one slide
+                if (slides.length > 1) {
+                    slides.forEach((_, index) => {
+                        const dot = document.createElement('div');
+                        dot.classList.add('dot');
+                        if (index === 0) dot.classList.add('active');
+                        dot.addEventListener('click', () => goToSlide(index));
+                        dotsContainer.appendChild(dot);
+                    });
+
+                    nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+                    prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+                } else {
+                    // Hide controls if only one image
+                    if (nextBtn) nextBtn.style.display = 'none';
+                    if (prevBtn) prevBtn.style.display = 'none';
+                    if (dotsContainer) dotsContainer.style.display = 'none';
+                }
+
+                dots = Array.from(dotsContainer.children);
 
                 // Initialize
                 slides[0].classList.add('active-slide');
