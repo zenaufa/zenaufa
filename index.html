@@ -160,7 +160,7 @@
             margin-bottom: 60px;
             opacity: 0;
             transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transition: opacity 0.4s ease, transform 0.4s ease;
             gap: 4rem;
         }
 
@@ -351,6 +351,7 @@
 
             .experience-image {
                 margin: 0.5rem 0;
+                width: 100%;
                 min-width: 100%;
             }
 
@@ -370,10 +371,330 @@
                 margin-bottom: 4rem;
             }
         }
+
+        /* ========== ENHANCED ANIMATIONS ========== */
+
+
+
+        /* Floating Gradient Orbs */
+        .floating-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.3;
+            animation: float 20s infinite ease-in-out;
+            transition: background 1.5s ease;
+            /* Smooth color transition */
+        }
+
+        :root {
+            --orb1-color: #a855f7;
+            --orb2-color: #ec4899;
+            --orb3-color: #06b6d4;
+        }
+
+        .orb1 {
+            width: 300px;
+            height: 300px;
+            background: var(--orb1-color);
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .orb2 {
+            width: 400px;
+            height: 400px;
+            background: var(--orb2-color);
+            top: 50%;
+            right: 10%;
+            animation-delay: 5s;
+        }
+
+        .orb3 {
+            width: 250px;
+            height: 250px;
+            background: var(--orb3-color);
+            bottom: 10%;
+            left: 30%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            33% {
+                transform: translate(30px, -50px) rotate(120deg);
+            }
+
+            66% {
+                transform: translate(-20px, 30px) rotate(240deg);
+            }
+        }
+
+        /* Vignette Glow Effect */
+        .vignette-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            background: radial-gradient(circle at 50% 50%, transparent 40%, rgba(124, 58, 237, 0.1) 100%);
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #a855f7, #7c3aed);
+            z-index: 10000;
+            transform-origin: left;
+            transform: scaleX(0);
+            transition: transform 0.1s ease-out;
+        }
+
+        /* Glassmorphism Navigation (if you add one later) */
+        nav {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Carousel Styles */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            flex: 0 0 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Ensure inner wrappers don't collapse */
+        .carousel-slide .et_pb_image_wrap,
+        .carousel-slide picture {
+            display: block;
+            width: 100%;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 0;
+            /* Container handles radius */
+            box-shadow: none;
+            /* Container handles shadow */
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.3);
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 50%;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(255, 255, 255, 0.8);
+            color: #333;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-prev {
+            left: 10px;
+        }
+
+        .carousel-next {
+            right: 10px;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+        /* Enhanced 3D Hover Effects */
+        .hero-image img {
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+        }
+
+        .hero-image img:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(124, 58, 237, 0.3);
+        }
+
+        .experience-image {
+            perspective: 1000px;
+        }
+
+        .experience-image img {
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+            transform-style: preserve-3d;
+        }
+
+        .experience-image img:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Parallax Effect */
+        .hero {
+            background-attachment: fixed;
+        }
+
+        /* Section Headers with Gradient */
+        .section-header h2 {
+            position: relative;
+            display: inline-block;
+            transition: background 0.3s ease;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #a855f7, #7c3aed);
+            border-radius: 2px;
+        }
+
+        .section-header h2:hover {
+            background: linear-gradient(90deg, #a855f7, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Enhanced Text Reveal Animations */
+        .experience-item {
+            transform: translateY(40px);
+        }
+
+        .experience-item.visible {
+            transform: translateY(0);
+        }
+
+        /* Scroll Arrow Enhanced */
+        .scroll-arrow {
+            transition: transform 0.3s ease, animation-play-state 0.3s ease;
+        }
+
+        .scroll-arrow:hover {
+            transform: translateX(-50%) scale(1.2);
+            animation-play-state: paused;
+        }
+
+        /* Advanced Button Base Styles */
+        button,
+        .btn {
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        button:hover,
+        .btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.4);
+        }
+
+        /* Pulse Animation for Interactive Elements */
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 0 10px rgba(124, 58, 237, 0);
+            }
+        }
     </style>
 </head>
 
 <body>
+
+
+    <!-- Floating Gradient Orbs -->
+    <div class="floating-orbs">
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+    </div>
+
+    <!-- Vignette Overlay -->
+    <div class="vignette-overlay"></div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
     <!-- Hero Section -->
     <section class="hero">
         <div id="particles-js"></div>
@@ -402,7 +723,7 @@
     <section class="section" id="experience">
         <div class="container">
             <div class="section-header">
-                <h2>Pengalaman Kerjas</h2>
+                <h2>Pengalaman Kerja</h2>
             </div>
 
             <!-- Tech Delivery Lead - Okadoc -->
@@ -416,19 +737,44 @@
                         and API testing, and acting as a Product Owner for select products.</p>
                 </div>
                 <div class="experience-image">
-                    <span class="et_pb_image_wrap">
-                        <picture>
-                            <source
-                                srcset="./uploads/2025/03/IMG_20240314_224245_294.jpg.webp 1440w, /uploads/2025/03/IMG_20240314_224245_294-1280x1108.jpg.webp 1280w, /uploads/2025/03/IMG_20240314_224245_294-980x849.jpg.webp 980w, /uploads/2025/03/IMG_20240314_224245_294-480x416.jpg.webp 480w"
-                                sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) and (max-width: 1280px) 1280px, (min-width: 1281px) 1440px, 100vw"
-                                type="image/webp"><img decoding="async" width="1440" height="1247"
-                                src="./uploads/2025/03/IMG_20240314_224245_294.jpg" alt=""
-                                title="IMG_20240314_224245_294"
-                                srcset="./uploads/2025/03/IMG_20240314_224245_294.jpg 1440w, /uploads/2025/03/IMG_20240314_224245_294-1280x1108.jpg 1280w, /uploads/2025/03/IMG_20240314_224245_294-980x849.jpg 980w, /uploads/2025/03/IMG_20240314_224245_294-480x416.jpg 480w"
-                                sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) and (max-width: 1280px) 1280px, (min-width: 1281px) 1440px, 100vw"
-                                class="wp-image-951" data-eio="p">
-                        </picture>
-                    </span>
+                    <div class="carousel-container">
+                        <div class="carousel-track">
+                            <div class="carousel-slide">
+                                <span class="et_pb_image_wrap">
+                                    <picture>
+                                        <source
+                                            srcset="./uploads/2025/03/IMG_20240314_224245_294.jpg.webp 1440w, /uploads/2025/03/IMG_20240314_224245_294-1280x1108.jpg.webp 1280w, /uploads/2025/03/IMG_20240314_224245_294-980x849.jpg.webp 980w, /uploads/2025/03/IMG_20240314_224245_294-480x416.jpg.webp 480w"
+                                            sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) and (max-width: 1280px) 1280px, (min-width: 1281px) 1440px, 100vw"
+                                            type="image/webp"><img decoding="async" width="1440" height="1247"
+                                            src="./uploads/2025/03/IMG_20240314_224245_294.jpg" alt=""
+                                            title="IMG_20240314_224245_294"
+                                            srcset="./uploads/2025/03/IMG_20240314_224245_294.jpg 1440w, /uploads/2025/03/IMG_20240314_224245_294-1280x1108.jpg 1280w, /uploads/2025/03/IMG_20240314_224245_294-980x849.jpg 980w, /uploads/2025/03/IMG_20240314_224245_294-480x416.jpg 480w"
+                                            sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) and (max-width: 1280px) 1280px, (min-width: 1281px) 1440px, 100vw"
+                                            class="wp-image-951" data-eio="p">
+                                    </picture>
+                                </span>
+                            </div>
+                            <!-- Duplicate for Demo -->
+                            <div class="carousel-slide">
+                                <span class="et_pb_image_wrap">
+                                    <picture>
+                                        <source
+                                            srcset="./uploads/2025/03/IMG_20240314_224245_294.jpg.webp 1440w, /uploads/2025/03/IMG_20240314_224245_294-1280x1108.jpg.webp 1280w, /uploads/2025/03/IMG_20240314_224245_294-980x849.jpg.webp 980w, /uploads/2025/03/IMG_20240314_224245_294-480x416.jpg.webp 480w"
+                                            sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) and (max-width: 1280px) 1280px, (min-width: 1281px) 1440px, 100vw"
+                                            type="image/webp"><img decoding="async" width="1440" height="1247"
+                                            src="./uploads/2025/03/IMG_20240314_224245_294.jpg" alt=""
+                                            title="IMG_20240314_224245_294"
+                                            srcset="./uploads/2025/03/IMG_20240314_224245_294.jpg 1440w, /uploads/2025/03/IMG_20240314_224245_294-1280x1108.jpg 1280w, /uploads/2025/03/IMG_20240314_224245_294-980x849.jpg 980w, /uploads/2025/03/IMG_20240314_224245_294-480x416.jpg 480w"
+                                            sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) and (max-width: 1280px) 1280px, (min-width: 1281px) 1440px, 100vw"
+                                            class="wp-image-951" data-eio="p">
+                                    </picture>
+                                </span>
+                            </div>
+                        </div>
+                        <button class="carousel-btn carousel-prev">&#10094;</button>
+                        <button class="carousel-btn carousel-next">&#10095;</button>
+                        <div class="carousel-dots"></div>
+                    </div>
                 </div>
             </div>
 
@@ -870,17 +1216,75 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
+    <!-- Lenis Smooth Scroll Library -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
     <script>
         // Defer script execution until DOM is ready
         window.addEventListener('DOMContentLoaded', function () {
-            // Initialize particles with optimized settings
+            // ========== LENIS SMOOTH SCROLLING ==========
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                smooth: true,
+                smoothTouch: false
+            });
+
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+
+            requestAnimationFrame(raf);
+
+
+
+            // ========== SCROLL PROGRESS BAR ==========
+            const scrollProgress = document.querySelector('.scroll-progress');
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const progress = (scrollTop / scrollHeight) * 100;
+                scrollProgress.style.transform = `scaleX(${progress / 100})`;
+            }, { passive: true });
+
+            // ========== VIGNETTE GLOW INTENSITY ==========
+            const vignetteOverlay = document.querySelector('.vignette-overlay');
+            window.addEventListener('scroll', () => {
+                const scrollPercentage = window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight);
+                const opacity = 0.3 + (scrollPercentage * 0.3); // Range from 0.3 to 0.6
+                vignetteOverlay.style.opacity = opacity;
+            }, { passive: true });
+
+            // ========== 3D TILT EFFECT ON IMAGES ==========
+            const experienceImages = document.querySelectorAll('.experience-image img');
+            experienceImages.forEach(img => {
+                img.addEventListener('mousemove', (e) => {
+                    const rect = img.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = (y - centerY) / 10;
+                    const rotateY = (centerX - x) / 10;
+
+                    img.style.transform = `translateY(-10px) scale(1.05) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                });
+
+                img.addEventListener('mouseleave', () => {
+                    img.style.transform = '';
+                });
+            });
+
+            // ========== PARTICLE SYSTEM WITH MOUSE REPULSION ==========
+            let particlesLoaded = false;
+
             particlesJS('particles-js', {
                 particles: {
                     number: {
-                        value: 15, // Reduced from 20
+                        value: 80,
                         density: {
                             enable: true,
-                            value_area: 800 // Increased from 435
+                            value_area: 800
                         }
                     },
                     color: {
@@ -894,7 +1298,7 @@
                         random: false
                     },
                     size: {
-                        value: 12, // Reduced from 16
+                        value: 12,
                         random: true
                     },
                     line_linked: {
@@ -902,7 +1306,7 @@
                     },
                     move: {
                         enable: true,
-                        speed: 2, // Reduced from 4
+                        speed: 1.5,
                         direction: "none",
                         random: false,
                         straight: false,
@@ -913,27 +1317,41 @@
                     detect_on: "canvas",
                     events: {
                         onhover: {
-                            enable: false
+                            enable: true,
+                            mode: "repulse"
                         },
                         onclick: {
                             enable: false
                         },
                         resize: true
+                    },
+                    modes: {
+                        repulse: {
+                            distance: 100,
+                            duration: 0.4
+                        }
                     }
                 },
-                retina_detect: false // Disabled for better performance
+                retina_detect: false
             });
 
-            // Optimize scroll handling with requestAnimationFrame
+            // ========== STAGGERED REVEAL ANIMATIONS ==========
             let ticking = false;
             const experienceItems = document.querySelectorAll('.experience-item');
 
             function handleScrollAnimation() {
-                experienceItems.forEach(item => {
+                let revealedCount = 0;
+                const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+                experienceItems.forEach((item) => {
+                    if (item.classList.contains('visible')) return;
+
                     const rect = item.getBoundingClientRect();
-                    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-                    if (rect.top <= windowHeight * 0.95) {
-                        item.classList.add('visible');
+                    if (rect.top <= windowHeight * 0.9) {
+                        setTimeout(() => {
+                            item.classList.add('visible');
+                        }, revealedCount * 100); // 100ms stagger delay
+                        revealedCount++;
                     }
                 });
                 ticking = false;
@@ -951,37 +1369,243 @@
             // Initial check for elements in viewport
             handleScrollAnimation();
 
-            // Smooth scroll with requestAnimationFrame
+            // ========== SMOOTH SCROLL TO SECTION ==========
             document.querySelector('.scroll-arrow').addEventListener('click', function (e) {
                 e.preventDefault();
                 const experienceSection = document.getElementById('experience');
-                const start = window.pageYOffset;
-                const target = experienceSection.offsetTop;
-                const distance = target - start;
-                const duration = 800;
-                let startTime = null;
+                lenis.scrollTo(experienceSection, { duration: 1.2 });
+            });
 
-                function animation(currentTime) {
-                    if (startTime === null) startTime = currentTime;
-                    const timeElapsed = currentTime - startTime;
-                    const progress = Math.min(timeElapsed / duration, 1);
-                    const ease = easeInOutCubic(progress);
+            // ========== PARALLAX SCROLLING EFFECT ==========
+            const hero = document.querySelector('.hero');
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
+            }, { passive: true });
 
-                    window.scrollTo(0, start + (distance * ease));
+            // ========== DYNAMIC BACKGROUND COLORS FROM IMAGES ==========
+            const orbs = document.querySelectorAll('.orb');
+            let canvas = document.createElement('canvas');
+            let ctx = canvas.getContext('2d');
+            canvas.width = 10;
+            canvas.height = 10;
 
-                    if (timeElapsed < duration) {
-                        requestAnimationFrame(animation);
+            function getAverageColor(img) {
+                try {
+                    ctx.drawImage(img, 0, 0, 10, 10);
+                    const imageData = ctx.getImageData(0, 0, 10, 10).data;
+                    let r = 0, g = 0, b = 0, count = 0;
+
+                    for (let i = 0; i < imageData.length; i += 4) {
+                        r += imageData[i];
+                        g += imageData[i + 1];
+                        b += imageData[i + 2];
+                        count++;
+                    }
+
+                    r = Math.floor(r / count);
+                    g = Math.floor(g / count);
+                    b = Math.floor(b / count);
+
+                    return `rgb(${r}, ${g}, ${b})`;
+                } catch (e) {
+                    console.error('Cannot extract color', e);
+                    return null;
+                }
+            }
+
+            function rgbToHsl(r, g, b) {
+                r /= 255, g /= 255, b /= 255;
+                const max = Math.max(r, g, b), min = Math.min(r, g, b);
+                let h, s, l = (max + min) / 2;
+
+                if (max === min) {
+                    h = s = 0; // achromatic
+                } else {
+                    const d = max - min;
+                    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+                    switch (max) {
+                        case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                        case g: h = (b - r) / d + 2; break;
+                        case b: h = (r - g) / d + 4; break;
+                    }
+                    h /= 6;
+                }
+
+                return [h * 360, s * 100, l * 100];
+            }
+
+            // Fallback colors for file:// protocol or when CORS fails
+            const fallbackColors = {
+                'IMG_20240314': 'rgb(0, 174, 239)', // Okadoc (Blue)
+                'IMG_0589': 'rgb(240, 90, 40)',     // Ekipa (Orange)
+                'photo_2021': 'rgb(237, 28, 36)',   // LinkAja (Red)
+                '58627258': 'rgb(240, 90, 40)',     // Ekipa (Orange)
+                '30052458': 'rgb(209, 17, 22)',     // MatahariMall (Red)
+                '16178657': 'rgb(248, 160, 26)',    // Livaza (Orange)
+                '37500598': 'rgb(61, 220, 132)',    // Android (Green)
+                'Screenshot': 'rgb(0, 156, 223)',   // Certs (Blue)
+                'Screen-Shot': 'rgb(0, 156, 223)',  // Certs (Blue)
+                '16512': 'rgb(0, 156, 223)',        // Scrum.org (Blue)
+                '16224': 'rgb(166, 25, 46)',        // ScrumInc (Red)
+                'ES4Ge': 'rgb(0, 115, 230)',        // DevOpsDays (Blue)
+                '74470889': 'rgb(240, 90, 40)',     // Agile (Orange)
+                '44913264532': 'rgb(0, 115, 230)',  // Agile Impact (Blue)
+                '39921998630': 'rgb(0, 115, 230)',  // DevOpsDays (Blue)
+                '20024197': 'rgb(240, 90, 40)',     // Agile Indo (Orange)
+                '22339480': 'rgb(61, 220, 132)',    // Google (Green)
+                '14500296': 'rgb(255, 203, 5)',     // Pokemon (Yellow)
+            };
+
+
+
+            function applyColorFromImage(img) {
+                let color = null;
+
+                // 1. Try Fallback Map first (most reliable for file://)
+                const src = img.src || "";
+
+                for (const [key, val] of Object.entries(fallbackColors)) {
+                    if (src.includes(key)) {
+                        color = val;
+                        break;
                     }
                 }
 
-                function easeInOutCubic(t) {
-                    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+                // 2. Try Canvas if no fallback match
+                if (!color) {
+                    try {
+                        color = getAverageColor(img);
+                    } catch (e) {
+                        // ignore canvas errors
+                    }
                 }
 
-                requestAnimationFrame(animation);
+                if (color) {
+                    // Extract RGB values from rgb string
+                    const [r, g, b] = color.match(/\d+/g).map(Number);
+
+                    // Convert to HSL
+                    let [h, s, l] = rgbToHsl(r, g, b);
+
+                    // Enhance Saturation: Boost to minimum 60%
+                    s = Math.max(s, 60);
+
+                    // Clamp Lightness: Keep between 40% and 70%
+                    l = Math.max(40, Math.min(l, 70));
+
+                    const fastColor = `hsl(${h}, ${s}%, ${l}%)`;
+
+                    // Update CSS variables smooth transition
+                    document.documentElement.style.setProperty('--orb1-color', fastColor);
+
+                    // Variations for other orbs
+                    document.documentElement.style.setProperty('--orb2-color', `hsl(${(h + 30) % 360}, ${s}%, ${l}%)`);
+                    document.documentElement.style.setProperty('--orb3-color', `hsl(${(h + 60) % 360}, ${s}%, ${l}%)`);
+                }
+            }
+
+
+            // ========== CAROUSEL LOGIC ==========
+            function setupCarousel(wrapper) {
+                const track = wrapper.querySelector('.carousel-track');
+                const slides = Array.from(track.children);
+                const nextBtn = wrapper.querySelector('.carousel-next');
+                const prevBtn = wrapper.querySelector('.carousel-prev');
+                const dotsContainer = wrapper.querySelector('.carousel-dots');
+                let currentIndex = 0;
+
+                // Create Dots
+                slides.forEach((_, index) => {
+                    const dot = document.createElement('div');
+                    dot.classList.add('dot');
+                    if (index === 0) dot.classList.add('active');
+                    dot.addEventListener('click', () => goToSlide(index));
+                    dotsContainer.appendChild(dot);
+                });
+
+                const dots = Array.from(dotsContainer.children);
+
+                function updateSlides() {
+                    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                    dots.forEach(d => d.classList.remove('active'));
+                    dots[currentIndex].classList.add('active');
+
+                    // Mark active slide for color observer
+                    slides.forEach(s => s.classList.remove('active-slide'));
+                    slides[currentIndex].classList.add('active-slide');
+
+                    // If this carousel is currently in viewport, update color immediately
+                    if (isElementInViewport(wrapper)) {
+                        const activeImg = slides[currentIndex].querySelector('img');
+                        if (activeImg) applyColorFromImage(activeImg);
+                    }
+                }
+
+                function goToSlide(index) {
+                    if (index < 0) index = slides.length - 1;
+                    if (index >= slides.length) index = 0;
+                    currentIndex = index;
+                    updateSlides();
+                }
+
+                nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+                prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+
+                // Initialize
+                slides[0].classList.add('active-slide');
+            }
+
+            // Initialize all carousels
+            document.querySelectorAll('.carousel-container').forEach(setupCarousel);
+
+            function isElementInViewport(el) {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+
+            // Observe all experience images (targeted at active slide image)
+            // We need to re-observe if carousel changes, but simpler strategy:
+            // The observer targets specific IMGs. If they are in viewport, they trigger.
+            // But for carousel, all slides are technically "in viewport" if overflow is hidden? 
+            // Actually, we should only trust the IntersectionObserver for the initial load/scroll, 
+            // and let the carousel click handler take over for manual slide changes.
+
+            // To prevent hidden slides from triggering observer, we can filter in the callback.
+            // Check if img is inside an .active-slide or doesn't have a parent .carousel-slide (standalone img)
+
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        const slide = img.closest('.carousel-slide');
+
+                        // Only apply color if it's a standalone image OR the active slide of a carousel
+                        if (!slide || slide.classList.contains('active-slide')) {
+                            if (img.complete) {
+                                applyColorFromImage(img);
+                            } else {
+                                img.onload = () => applyColorFromImage(img);
+                            }
+                        }
+                    }
+                });
+            }, {
+                threshold: [0.1, 0.5],
+                rootMargin: "-10% 0px -10% 0px"
             });
 
-            // Optimize role animation
+            // Observe all IMG elements inside experience-image
+            document.querySelectorAll('.experience-image img').forEach(img => {
+                imageObserver.observe(img);
+            });
+
+            // ========== ROLE ANIMATION ==========
             const roles = [
                 "Tech Delivery Lead at Okadoc, UAE",
                 "Certified Professional Scrum Master",
@@ -1011,9 +1635,9 @@
             // Initial role
             roleElement.textContent = roles[0];
 
-            // Start cycling after initial delay with reduced frequency
+            // Start cycling after initial delay
             setTimeout(() => {
-                setInterval(updateRole, 4000); // Increased from 3500 to reduce CPU usage
+                setInterval(updateRole, 4000);
             }, 400);
         });
     </script>
