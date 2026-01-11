@@ -68,7 +68,6 @@
             align-items: center;
             position: relative;
             padding: 4% 0;
-            background-image: url('./uploads/homepage/110253719_1211869562486938_8612718930472375359_o.webp');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -81,7 +80,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: transparent;
             z-index: 1;
         }
 
@@ -199,9 +198,7 @@
             transition: transform 0.3s ease;
         }
 
-        .experience-image img:hover {
-            transform: scale(1.02);
-        }
+
 
         /* Section Headers */
         .section-header {
@@ -489,6 +486,12 @@
             overflow: hidden;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+        }
+
+        .carousel-container:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
         }
 
         .carousel-track {
@@ -599,10 +602,7 @@
             transform-style: preserve-3d;
         }
 
-        .experience-image img:hover {
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-        }
+
 
         /* Parallax Effect */
         .hero {
@@ -1254,23 +1254,29 @@
                 vignetteOverlay.style.opacity = opacity;
             }, { passive: true });
 
-            // ========== 3D TILT EFFECT ON IMAGES ==========
-            const experienceImages = document.querySelectorAll('.experience-image img');
-            experienceImages.forEach(img => {
-                img.addEventListener('mousemove', (e) => {
-                    const rect = img.getBoundingClientRect();
+            // ========== 3D TILT EFFECT ON CAROUSELS & HERO ==========
+            const tiltElements = document.querySelectorAll('.carousel-container, .hero-image img');
+            tiltElements.forEach(el => {
+                el.addEventListener('mousemove', (e) => {
+                    const rect = el.getBoundingClientRect();
                     const x = e.clientX - rect.left;
                     const y = e.clientY - rect.top;
                     const centerX = rect.width / 2;
                     const centerY = rect.height / 2;
-                    const rotateX = (y - centerY) / 10;
-                    const rotateY = (centerX - x) / 10;
+                    const rotateX = (y - centerY) / 20; // Reduced sensitivity for larger container
+                    const rotateY = (centerX - x) / 20;
 
-                    img.style.transform = `translateY(-10px) scale(1.05) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                    // Remove transition for instant follow
+                    el.style.transition = 'none';
+                    el.style.transform = `translateY(-10px) scale(1.02) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                    el.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.15)';
                 });
 
-                img.addEventListener('mouseleave', () => {
-                    img.style.transform = '';
+                el.addEventListener('mouseleave', () => {
+                    // Restore transition for smooth return
+                    el.style.transition = 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease';
+                    el.style.transform = '';
+                    el.style.boxShadow = '';
                 });
             });
 
@@ -1599,9 +1605,14 @@
                 rootMargin: "-10% 0px -10% 0px"
             });
 
-            // Observe all IMG elements inside experience-image
-            document.querySelectorAll('.experience-image img').forEach(img => {
+            // Observe all IMG elements inside experience-image AND hero-image
+            document.querySelectorAll('.experience-image img, .hero-image img').forEach(img => {
                 imageObserver.observe(img);
+
+                // Also update color on mouse enter
+                img.addEventListener('mouseenter', () => {
+                    applyColorFromImage(img);
+                });
             });
 
             // ========== ROLE ANIMATION ==========
