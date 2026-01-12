@@ -21,7 +21,7 @@
     </noscript>
 
     <style>
-        /* Font loading optimizatison */
+        /* Fonts */
         @font-face {
             font-family: 'Overpass';
             font-style: normal;
@@ -31,7 +31,7 @@
             unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
         }
 
-        /* Reset & Base Styles */
+        /* Base */
         * {
             margin: 0;
             padding: 0;
@@ -163,10 +163,10 @@
             gap: 4rem;
         }
 
-        /* Add specific style for the last item in each section */
+
         .section .experience-item:last-child {
             margin-bottom: 5px;
-            /* Reduced margin for the last item */
+
         }
 
         .experience-item.visible {
@@ -369,7 +369,7 @@
             }
         }
 
-        /* ========== ENHANCED ANIMATIONS ========== */
+
 
 
 
@@ -471,7 +471,7 @@
             transition: transform 0.1s ease-out;
         }
 
-        /* Glassmorphism Navigation (if you add one later) */
+
         nav {
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
@@ -583,7 +583,7 @@
             transform: scale(1.2);
         }
 
-        /* Enhanced 3D Hover Effects */
+        /* Hover Effects */
         .hero-image img {
             transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
         }
@@ -609,7 +609,7 @@
             background-attachment: fixed;
         }
 
-        /* Section Headers with Gradient */
+        /* Headers */
         .section-header h2 {
             position: relative;
             display: inline-block;
@@ -634,7 +634,7 @@
             background-clip: text;
         }
 
-        /* Enhanced Text Reveal Animations */
+        /* Text Reveal */
         .experience-item {
             transform: translateY(40px);
         }
@@ -643,7 +643,7 @@
             transform: translateY(0);
         }
 
-        /* Scroll Arrow Enhanced */
+        /* Scroll Arrow */
         .scroll-arrow {
             transition: transform 0.3s ease, animation-play-state 0.3s ease;
         }
@@ -653,7 +653,7 @@
             animation-play-state: paused;
         }
 
-        /* Advanced Button Base Styles */
+        /* Buttons */
         button,
         .btn {
             transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -665,7 +665,7 @@
             box-shadow: 0 10px 30px rgba(124, 58, 237, 0.4);
         }
 
-        /* Pulse Animation for Interactive Elements */
+        /* Pulse Animation */
         @keyframes pulse {
 
             0%,
@@ -683,7 +683,7 @@
 <body>
 
 
-    <!-- Floating Gradient Orbs -->
+    <!-- Orbs -->
     <div class="floating-orbs">
         <div class="orb orb1"></div>
         <div class="orb orb2"></div>
@@ -703,7 +703,7 @@
                 <div class="hero-image">
                     <span class="et_pb_image_wrap"><img fetchpriority="high" decoding="async" width="829" height="1024"
                             src="./uploads/2025/03/Screenshot-2025-03-19-at-06.07.43-829x1024.webp"
-                            alt="Zen Aufa Bahalwan Profile" title="Screenshot"
+                            alt="Zen Aufa Bahalwan Profile Picture" title="Zen Aufa Bahalwan Profile Picture"
                             srcset="./uploads/2025/03/Screenshot-2025-03-19-at-06.07.43-829x1024.webp 829w, /uploads/2025/03/Screenshot-2025-03-19-at-06.07.43-480x593.webp 480w"
                             sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) 829px, 100vw"
                             class="wp-image-954"></span>
@@ -715,7 +715,8 @@
             </div>
         </div>
         <div class="scroll-arrow">
-            <img src="./uploads/homepage/caret-down.png" alt="Scroll Down">
+            <img src="./uploads/homepage/caret-down.png" alt="Scroll Down Arrow"
+                title="Scroll Down to Experience Section">
         </div>
     </section>
 
@@ -753,7 +754,7 @@
         </div>
     </section>
 
-    <!-- Data-Driven Rendering Script -->
+    <!-- Script -->
     <script>
         const experienceData = [
             {
@@ -768,8 +769,8 @@
                                             srcset="./uploads/2025/03/IMG_20240314_224245_294.jpg.webp 1440w, ./uploads/2025/03/IMG_20240314_224245_294-1280x1108.jpg.webp 1280w, ./uploads/2025/03/IMG_20240314_224245_294-980x849.jpg.webp 980w, ./uploads/2025/03/IMG_20240314_224245_294-480x416.jpg.webp 480w"
                                             sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) and (max-width: 1280px) 1280px, (min-width: 1281px) 1440px, 100vw"
                                             type="image/webp"><img decoding="async" width="1440" height="1247"
-                                            src="./uploads/2025/03/IMG_20240314_224245_294.jpg" alt=""
-                                            title="IMG_20240314_224245_294"
+                                            src="./uploads/2025/03/IMG_20240314_224245_294.jpg" alt="Tech Delivery Lead at Okadoc"
+                                            title="Tech Delivery Lead at Okadoc"
                                             srcset="./uploads/2025/03/IMG_20240314_224245_294.jpg 1440w, ./uploads/2025/03/IMG_20240314_224245_294-1280x1108.jpg 1280w, ./uploads/2025/03/IMG_20240314_224245_294-980x849.jpg 980w, ./uploads/2025/03/IMG_20240314_224245_294-480x416.jpg 480w"
                                             sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) and (max-width: 1280px) 1280px, (min-width: 1281px) 1440px, 100vw"
                                             class="wp-image-951" data-eio="p">
@@ -783,7 +784,7 @@
                 year: "March 2023 – March 2022",
                 desc: "Supporting banking industry clients in adopting and improving Agile ways of working within IT and business teams. Implementing OKRs, conducting squad health checks, and facilitating quarterly top management meetings.",
                 slides: [
-                    `<span class="et_pb_image_wrap"><img decoding="async" src="./uploads/2025/03/IMG_0589-1024x768.webp" alt="" title="IMG_0589"></span>`
+                    `<span class="et_pb_image_wrap"><img decoding="async" src="./uploads/2025/03/IMG_0589-1024x768.webp" alt="Agile Coach at Ekipa" title="Agile Coach at Ekipa"></span>`
                 ]
             },
             {
@@ -798,8 +799,8 @@
                                 srcset="./uploads/2021/03/photo_2021-03-02-03.44.28-1024x768.jpeg.webp 1024w, ./uploads/2021/03/photo_2021-03-02-03.44.28-980x735.jpeg.webp 980w, ./uploads/2021/03/photo_2021-03-02-03.44.28-480x360.jpeg.webp 480w"
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 type="image/webp"><img decoding="async" width="1024" height="768"
-                                src="./uploads/2021/03/photo_2021-03-02-03.44.28-1024x768.jpeg" alt=""
-                                title="photo_2021-03-02-03.44.28"
+                                src="./uploads/2021/03/photo_2021-03-02-03.44.28-1024x768.jpeg" alt="Scrum Master Lead at LinkAja"
+                                title="Scrum Master Lead at LinkAja"
                                 srcset="./uploads/2021/03/photo_2021-03-02-03.44.28-1024x768.jpeg 1024w, ./uploads/2021/03/photo_2021-03-02-03.44.28-980x735.jpeg 980w, ./uploads/2021/03/photo_2021-03-02-03.44.28-480x360.jpeg 480w"
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 class="wp-image-11" data-eio="p">
@@ -820,7 +821,7 @@
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 type="image/webp"><img decoding="async" width="1024" height="498"
                                 src="./uploads/2021/03/58627258_861773094163255_1697284428708970496_o-1024x498.jpeg"
-                                alt="" title="58627258_861773094163255_1697284428708970496_o"
+                                alt="Scrum Master at Ekipa" title="Scrum Master at Ekipa"
                                 srcset="./uploads/2021/03/58627258_861773094163255_1697284428708970496_o-1024x498.jpeg 1024w, ./uploads/2021/03/58627258_861773094163255_1697284428708970496_o-980x476.jpeg 980w, ./uploads/2021/03/58627258_861773094163255_1697284428708970496_o-480x233.jpeg 480w"
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 class="wp-image-12" data-eio="p">
@@ -841,7 +842,7 @@
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 type="image/webp"><img decoding="async" width="1024" height="768"
                                 src="./uploads/2021/03/30052458_616093635397870_7153621626247636849_o-1024x768.jpeg"
-                                alt="" title="30052458_616093635397870_7153621626247636849_o"
+                                alt="Scrum Master at MatahariMall.com" title="Scrum Master at MatahariMall.com"
                                 srcset="./uploads/2021/03/30052458_616093635397870_7153621626247636849_o-1024x768.jpeg 1024w, ./uploads/2021/03/30052458_616093635397870_7153621626247636849_o-980x735.jpeg 980w, ./uploads/2021/03/30052458_616093635397870_7153621626247636849_o-480x360.jpeg 480w"
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 class="wp-image-13" data-eio="p">
@@ -862,7 +863,7 @@
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 type="image/webp"><img decoding="async" width="1024" height="768"
                                 src="./uploads/2021/03/16178657_404980159842553_7400643207369749568_o-1024x768.jpeg"
-                                alt="" title="16178657_404980159842553_7400643207369749568_o"
+                                alt="Product Owner at Livaza.com" title="Product Owner at Livaza.com"
                                 srcset="./uploads/2021/03/16178657_404980159842553_7400643207369749568_o-1024x768.jpeg 1024w, ./uploads/2021/03/16178657_404980159842553_7400643207369749568_o-980x735.jpeg 980w, ./uploads/2021/03/16178657_404980159842553_7400643207369749568_o-480x360.jpeg 480w"
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 class="wp-image-14" data-eio="p">
@@ -883,7 +884,7 @@
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 type="image/webp"><img decoding="async" width="1024" height="1024"
                                 src="./uploads/2021/03/37500598_681500432190523_6196222216972009472_o-1024x1024.jpeg"
-                                alt="" title="37500598_681500432190523_6196222216972009472_o"
+                                alt="Android Service Technician" title="Android Service Technician"
                                 srcset="./uploads/2021/03/37500598_681500432190523_6196222216972009472_o-1024x1024.jpeg 1024w, ./uploads/2021/03/37500598_681500432190523_6196222216972009472_o-980x980.jpeg 980w, ./uploads/2021/03/37500598_681500432190523_6196222216972009472_o-480x480.jpeg 480w"
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 class="wp-image-15" data-eio="p">
@@ -898,11 +899,11 @@
                 title: "SAFe 6 Agilist",
                 company: "Scaled Agile, Inc.",
                 year: "2025",
-                desc: "", // No description in original
+                desc: "",
                 slides: [
                     `<span class="et_pb_image_wrap"><img loading="lazy" decoding="async" width="1024" height="790"
                             src="./uploads/homepage/safe.jpg"
-                            alt="Safe 6 Agilist" title="Safe 6 Agilist"
+                            alt="SAFe 6 Agilist Certificate" title="SAFe 6 Agilist Certificate"
                             sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                             class="wp-image-952"></span>`
                 ]
@@ -915,7 +916,7 @@
                 slides: [
                     `<span class="et_pb_image_wrap"><img loading="lazy" decoding="async" width="1024" height="790"
                             src="./uploads/homepage/Azure AI Document Intelligence.webp"
-                            alt="Azure AI Document Intelligence" title="Azure AI Document Intelligence"
+                            alt="Microsoft Azure AI Document Intelligence Certificate" title="Microsoft Azure AI Document Intelligence Certificate"
                             sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                             class="wp-image-952"></span>`
                 ]
@@ -928,7 +929,7 @@
                 slides: [
                     `<span class="et_pb_image_wrap"><img loading="lazy" decoding="async" width="1024" height="790"
                             src="./uploads/2025/03/Screenshot-2025-03-19-at-06.02.59-1024x790.webp"
-                            alt="ICP-ACC" title="ICP-ACC"
+                            alt="ICAgile Agile Coaching Certificate" title="ICAgile Agile Coaching Certificate"
                             srcset="./uploads/2025/03/Screenshot-2025-03-19-at-06.02.59-980x756.webp 980w, ./uploads/2025/03/Screenshot-2025-03-19-at-06.02.59-480x370.webp 480w"
                             sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                             class="wp-image-952"></span>`
@@ -946,7 +947,7 @@
                                 srcset="./uploads/2022/06/1651207617878-980x752.jpeg.webp 980w, ./uploads/2022/06/1651207617878-480x368.jpeg.webp 480w"
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 type="image/webp"><img decoding="async" width="1024" height="786"
-                                src="./uploads/2022/06/1651207617878-1024x786.jpeg" alt="" title="1651207617878"
+                                src="./uploads/2022/06/1651207617878-1024x786.jpeg" alt="Professional Scrum Master II Certificate" title="Professional Scrum Master II Certificate"
                                 srcset="./uploads/2022/06/1651207617878-980x752.jpeg 980w, ./uploads/2022/06/1651207617878-480x368.jpeg 480w"
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 class="wp-image-270" data-eio="p">
@@ -966,7 +967,7 @@
                                 srcset="./uploads/2022/06/1622427510072.jpeg.webp 800w, ./uploads/2022/06/1622427510072-480x371.jpeg.webp 480w"
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) 800px, 100vw"
                                 type="image/webp"><img decoding="async" width="800" height="618"
-                                src="./uploads/2022/06/1622427510072.jpeg" alt="" title="1622427510072"
+                                src="./uploads/2022/06/1622427510072.jpeg" alt="Registered Scrum Master Certificate" title="Registered Scrum Master Certificate"
                                 srcset="./uploads/2022/06/1622427510072.jpeg 800w, ./uploads/2022/06/1622427510072-480x371.jpeg 480w"
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) 800px, 100vw"
                                 class="wp-image-271" data-eio="p">
@@ -986,7 +987,7 @@
                                 srcset="./uploads/2022/06/1622427510658-1.jpeg.webp 800w, ./uploads/2022/06/1622427510658-1-480x371.jpeg.webp 480w"
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) 800px, 100vw"
                                 type="image/webp"><img decoding="async" width="800" height="618"
-                                src="./uploads/2022/06/1622427510658-1.jpeg" alt="" title="1622427510658"
+                                src="./uploads/2022/06/1622427510658-1.jpeg" alt="Registered Scrum Product Owner Certificate" title="Registered Scrum Product Owner Certificate"
                                 srcset="./uploads/2022/06/1622427510658-1.jpeg 800w, ./uploads/2022/06/1622427510658-1-480x371.jpeg 480w"
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) 800px, 100vw"
                                 class="wp-image-273" data-eio="p">
@@ -1006,8 +1007,8 @@
                                 srcset="./uploads/2022/02/Screen-Shot-2022-02-05-at-12.08.48-980x757.png.webp 980w, ./uploads/2022/02/Screen-Shot-2022-02-05-at-12.08.48-480x371.png.webp 480w"
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 type="image/webp"><img decoding="async" width="1024" height="791"
-                                src="./uploads/2022/02/Screen-Shot-2022-02-05-at-12.08.48-1024x791.png" alt=""
-                                title="Screen Shot 2022-02-05 at 12.08.48"
+                                src="./uploads/2022/02/Screen-Shot-2022-02-05-at-12.08.48-1024x791.png" alt="Professional Scrum Master I Certificate"
+                                title="Professional Scrum Master I Certificate"
                                 srcset="./uploads/2022/02/Screen-Shot-2022-02-05-at-12.08.48-980x757.png 980w, ./uploads/2022/02/Screen-Shot-2022-02-05-at-12.08.48-480x371.png 480w"
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 class="wp-image-219" data-eio="p">
@@ -1018,7 +1019,7 @@
         ];
 
         const activitiesData = [
-        {
+            {
                 title: "Organizing Committee, and Facilitator",
                 company: "Agile Conference Indonesia",
                 year: "2025",
@@ -1030,7 +1031,7 @@
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 type="image/webp">
                             <img decoding="async" width="1024" height="683"
-                                src="./uploads/homepage/Agile Indonesia Unconference 2025_1.jpeg" alt="" title="Agile Indonesia Unconference 2025"
+                                src="./uploads/homepage/Agile Indonesia Unconference 2025_1.jpeg" alt="Agile Indonesia Unconference 2025" title="Agile Indonesia Unconference 2025"
                                 class="wp-image-20" data-eio="p">
                         </picture>
                     </span>`,
@@ -1041,13 +1042,13 @@
                                 type="image/webp">
                             <img decoding="async" width="1024" height="683"
                                 style="width: 100%; height: 100%; object-fit: cover; display: block;"
-                                src="./uploads/homepage/Agile Indonesia Unconference 2025_2.jpeg" alt="" title="Agile Indonesia Unconference 2025"
+                                src="./uploads/homepage/Agile Indonesia Unconference 2025_2.jpeg" alt="Agile Indonesia Unconference 2025" title="Agile Indonesia Unconference 2025"
                                 class="wp-image-20" data-eio="p">
                         </picture>
                     </span>`
                 ]
-        },    
-        {
+            },
+            {
                 title: "Host, and Moderator",
                 company: "Business Transformation Conference",
                 year: "2024",
@@ -1059,12 +1060,12 @@
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 type="image/webp">
                             <img decoding="async" width="1024" height="683"
-                                src="./uploads/homepage/Business Transformation Conference 2024_1.jpeg" alt="" title="Business Transformation Conference 2024"
+                                src="./uploads/homepage/Business Transformation Conference 2024_1.jpeg" alt="Business Transformation Conference 2024" title="Business Transformation Conference 2024"
                                 class="wp-image-20" data-eio="p">
                         </picture>
                     </span>`,
-                    
-                    // MODIFIED SECOND SLIDE BELOW
+
+
                     `<span class="et_pb_image_wrap" style="display: flex; width: 100%; height: 100%;">
                         <picture style="width: 100%; height: 100%;">
                             <source
@@ -1072,13 +1073,13 @@
                                 type="image/webp">
                             <img decoding="async" width="1024" height="683"
                                 style="width: 100%; height: 100%; object-fit: cover; display: block;"
-                                src="./uploads/homepage/Business Transformation Conference 2024_2.jpeg" alt="" title="Business Transformation Conference 2024"
+                                src="./uploads/homepage/Business Transformation Conference 2024_2.jpeg" alt="Business Transformation Conference 2024" title="Business Transformation Conference 2024"
                                 class="wp-image-20" data-eio="p">
                         </picture>
                     </span>`
                 ]
-        },    
-        {
+            },
+            {
                 title: "Host",
                 company: "Agile Meetup at DKatalis",
                 year: "2024",
@@ -1090,12 +1091,10 @@
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 type="image/webp">
                             <img decoding="async" width="1024" height="683"
-                                src="./uploads/homepage/Agile Meetup at Dkatalis.jpeg" alt="" title="Agile Meetup at DKatalis 2024"
+                                src="./uploads/homepage/Agile Meetup at Dkatalis.jpeg" alt="Agile Meetup at DKatalis" title="Agile Meetup at DKatalis"
                                 class="wp-image-20" data-eio="p">
                         </picture>
                     </span>`,
-                    
-                    // MODIFIED SECOND SLIDE BELOW
                     `<span class="et_pb_image_wrap" style="display: flex; width: 100%; height: 100%;">
                         <picture style="width: 100%; height: 100%;">
                             <source
@@ -1103,13 +1102,13 @@
                                 type="image/webp">
                             <img decoding="async" width="1024" height="683"
                                 style="width: 100%; height: 100%; object-fit: cover; display: block;"
-                                src="./uploads/homepage/Agile Meetup at Dkatalis_2.jpeg" alt="" title="Agile Meetup at DKatalis 2024"
+                                src="./uploads/homepage/Agile Meetup at Dkatalis_2.jpeg" alt="Agile Meetup at DKatalis" title="Agile Meetup at DKatalis"
                                 class="wp-image-20" data-eio="p">
                         </picture>
                     </span>`
                 ]
-        },    
-        {
+            },
+            {
                 title: "Organizing Committee, and Facilitator",
                 company: "Agile Indonesia Unconference",
                 year: "2024",
@@ -1121,12 +1120,10 @@
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 type="image/webp">
                             <img decoding="async" width="1024" height="683"
-                                src="./uploads/homepage/Agile Indonesia Unconference 2024_1.jpeg" alt="" title="Agile Indonesia Unconference 2024"
+                                src="./uploads/homepage/Agile Indonesia Unconference 2024_1.jpeg" alt="Agile Indonesia Unconference 2024" title="Agile Indonesia Unconference 2024"
                                 class="wp-image-20" data-eio="p">
                         </picture>
                     </span>`,
-                    
-                    // MODIFIED SECOND SLIDE BELOW
                     `<span class="et_pb_image_wrap" style="display: flex; width: 100%; height: 100%;">
                         <picture style="width: 100%; height: 100%;">
                             <source
@@ -1134,13 +1131,13 @@
                                 type="image/webp">
                             <img decoding="async" width="1024" height="683"
                                 style="width: 100%; height: 100%; object-fit: cover; display: block;"
-                                src="./uploads/homepage/Agile Indonesia Unconference 2024_2.jpeg" alt="" title="Agile Indonesia Unconference 2024"
+                                src="./uploads/homepage/Agile Indonesia Unconference 2024_2.jpeg" alt="Agile Indonesia Unconference 2024" title="Agile Indonesia Unconference 2024"
                                 class="wp-image-20" data-eio="p">
                         </picture>
                     </span>`
                 ]
-        },    
-        {
+            },
+            {
                 title: "Organizing Committee, and Speaker",
                 company: "Agile Indonesia Unconference",
                 year: "2022",
@@ -1151,7 +1148,7 @@
                             <source
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 type="image/webp"><img decoding="async" width="1024" height="683"
-                                src="./uploads/homepage/Agile Indonesia Unconference 2022.jpeg" alt="" title="Agile Indonesia Unconference 2022"
+                                src="./uploads/homepage/Agile Indonesia Unconference 2022.jpeg" alt="Agile Indonesia Unconference 2022" title="Agile Indonesia Unconference 2022"
                                 class="wp-image-20" data-eio="p">
                         </picture>
                     </span>`
@@ -1169,7 +1166,7 @@
                                 srcset="./uploads/2021/03/ES4GeYcUMAEj-fK-1024x683.jpeg.webp 1024w, ./uploads/2021/03/ES4GeYcUMAEj-fK-980x654.jpeg.webp 980w, ./uploads/2021/03/ES4GeYcUMAEj-fK-480x320.jpeg.webp 480w"
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 type="image/webp"><img decoding="async" width="1024" height="683"
-                                src="./uploads/2021/03/ES4GeYcUMAEj-fK-1024x683.jpeg" alt="" title="ES4GeYcUMAEj-fK"
+                                src="./uploads/2021/03/ES4GeYcUMAEj-fK-1024x683.jpeg" alt="DevOpsDays Jakarta 2020" title="DevOpsDays Jakarta 2020"
                                 srcset="./uploads/2021/03/ES4GeYcUMAEj-fK-1024x683.jpeg 1024w, ./uploads/2021/03/ES4GeYcUMAEj-fK-980x654.jpeg 980w, ./uploads/2021/03/ES4GeYcUMAEj-fK-480x320.jpeg 480w"
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 class="wp-image-20" data-eio="p">
@@ -1190,7 +1187,7 @@
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 type="image/webp"><img decoding="async" width="1024" height="987"
                                 src="./uploads/2021/03/74470889_996641824009714_5304678605089931264_o-1024x987.jpeg"
-                                alt="" title="74470889_996641824009714_5304678605089931264_o"
+                                alt="Scrum Alliance Agile Coaching Retreat 2019" title="Scrum Alliance Agile Coaching Retreat 2019"
                                 srcset="./uploads/2021/03/74470889_996641824009714_5304678605089931264_o-1024x987.jpeg 1024w, ./uploads/2021/03/74470889_996641824009714_5304678605089931264_o-980x945.jpeg 980w, ./uploads/2021/03/74470889_996641824009714_5304678605089931264_o-480x463.jpeg 480w"
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 class="wp-image-21" data-eio="p">
@@ -1210,8 +1207,8 @@
                                 srcset="./uploads/2021/03/44913264532_24985544a1_k-980x653.jpg.webp 980w, ./uploads/2021/03/44913264532_24985544a1_k-480x320.jpg.webp 480w"
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 type="image/webp"><img decoding="async" width="1024" height="683"
-                                src="./uploads/2021/03/44913264532_24985544a1_k-1024x683.jpg" alt=""
-                                title="44913264532_24985544a1_k"
+                                src="./uploads/2021/03/44913264532_24985544a1_k-1024x683.jpg" alt="Agile Impact Conference 2018"
+                                title="Agile Impact Conference 2018"
                                 srcset="./uploads/2021/03/44913264532_24985544a1_k-980x653.jpg 980w, ./uploads/2021/03/44913264532_24985544a1_k-480x320.jpg 480w"
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 class="wp-image-22" data-eio="p">
@@ -1231,8 +1228,8 @@
                                 srcset="./uploads/2021/03/39921998630_0771b15668_k-980x653.jpg.webp 980w, ./uploads/2021/03/39921998630_0771b15668_k-480x320.jpg.webp 480w"
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 type="image/webp"><img decoding="async" width="1024" height="683"
-                                src="./uploads/2021/03/39921998630_0771b15668_k-1024x683.jpg" alt=""
-                                title="39921998630_0771b15668_k"
+                                src="./uploads/2021/03/39921998630_0771b15668_k-1024x683.jpg" alt="DevOpsDays Jakarta 2018"
+                                title="DevOpsDays Jakarta 2018"
                                 srcset="./uploads/2021/03/39921998630_0771b15668_k-980x653.jpg 980w, ./uploads/2021/03/39921998630_0771b15668_k-480x320.jpg 480w"
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 class="wp-image-23" data-eio="p">
@@ -1253,7 +1250,7 @@
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 type="image/webp"><img decoding="async" width="1024" height="683"
                                 src="./uploads/2021/03/20024197_494781024195799_7720302361075107942_o-1024x683.jpeg"
-                                alt="" title="20024197_494781024195799_7720302361075107942_o"
+                                alt="Agile Indonesia Conference 2017" title="Agile Indonesia Conference 2017"
                                 srcset="./uploads/2021/03/20024197_494781024195799_7720302361075107942_o-980x653.jpeg 980w, ./uploads/2021/03/20024197_494781024195799_7720302361075107942_o-480x320.jpeg 480w"
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 class="wp-image-24" data-eio="p">
@@ -1274,7 +1271,7 @@
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 type="image/webp"><img decoding="async" width="1024" height="579"
                                 src="./uploads/2021/03/22339480_530618887278679_8343948139671591405_o-1024x579.jpeg"
-                                alt="" title="22339480_530618887278679_8343948139671591405_o"
+                                alt="Google Indonesia Android Kejar 2017" title="Google Indonesia Android Kejar 2017"
                                 srcset="./uploads/2021/03/22339480_530618887278679_8343948139671591405_o-1024x579.jpeg 1024w, ./uploads/2021/03/22339480_530618887278679_8343948139671591405_o-980x554.jpeg 980w, ./uploads/2021/03/22339480_530618887278679_8343948139671591405_o-480x272.jpeg 480w"
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 class="wp-image-25" data-eio="p">
@@ -1288,7 +1285,6 @@
                 year: "2015 – 2018",
                 desc: "",
                 slides: [
-                    // FIX: Applied full width/height styles to span, picture, and img
                     `<span class="et_pb_image_wrap" style="display: block; width: 100%; height: 100%;">
                         <picture style="display: block; width: 100%; height: 100%;">
                             <source type="image/webp">
@@ -1301,6 +1297,8 @@
                                 class="wp-image-26" 
                                 data-eio="p"
                                 style="width: 100%; height: 100%; object-fit: cover; display: block;"
+                                alt="PKMN-id Tournament Organizer"
+                                title="PKMN-id Tournament Organizer"
                             >
                         </picture>
                     </span>`,
@@ -1311,7 +1309,7 @@
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 type="image/webp"><img decoding="async" width="1024" height="768"
                                 src="./uploads/2021/03/14500296_347802672226969_5444943720186505152_o-1024x768.jpeg"
-                                alt="" title="14500296_347802672226969_5444943720186505152_o"
+                                alt="PKMN-id Event" title="PKMN-id Event"
                                 srcset="./uploads/2021/03/14500296_347802672226969_5444943720186505152_o-980x735.jpeg 980w, ./uploads/2021/03/14500296_347802672226969_5444943720186505152_o-480x360.jpeg 480w"
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
                                 class="wp-image-26" data-eio="p"
@@ -1324,7 +1322,8 @@
                                 type="image/webp"><img decoding="async" width="1024" height="768"
                                 src="./uploads/homepage/SITA.jpg"
                                 sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
-                                class="wp-image-26" data-eio="p">
+                                class="wp-image-26" data-eio="p" 
+                                alt="SITA Event" title="SITA Event">
                         </picture>
                     </span>`
                 ]
@@ -1523,17 +1522,16 @@
                 }
             }, { passive: true });
 
-            // Initial check for elements in viewport
             handleScrollAnimation();
 
-            // ========== SMOOTH SCROLL TO SECTION ==========
+
             document.querySelector('.scroll-arrow').addEventListener('click', function (e) {
                 e.preventDefault();
                 const experienceSection = document.getElementById('experience');
                 lenis.scrollTo(experienceSection, { duration: 1.2 });
             });
 
-            // ========== PARALLAX SCROLLING EFFECT ==========
+            // Parallax
             const hero = document.querySelector('.hero');
             window.addEventListener('scroll', () => {
                 const scrolled = window.pageYOffset;
@@ -1619,7 +1617,7 @@
             function applyColorFromImage(img) {
                 let color = null;
 
-                // 1. Try Fallback Map first (most reliable for file://)
+
                 const src = img.src || "";
 
                 for (const [key, val] of Object.entries(fallbackColors)) {
@@ -1629,7 +1627,7 @@
                     }
                 }
 
-                // 2. Try Canvas if no fallback match
+
                 if (!color) {
                     try {
                         color = getAverageColor(img);
@@ -1639,31 +1637,31 @@
                 }
 
                 if (color) {
-                    // Extract RGB values from rgb string
+
                     const [r, g, b] = color.match(/\d+/g).map(Number);
 
-                    // Convert to HSL
+
                     let [h, s, l] = rgbToHsl(r, g, b);
 
-                    // Enhance Saturation: Boost to minimum 60%
+
                     s = Math.max(s, 60);
 
-                    // Clamp Lightness: Keep between 40% and 70%
+
                     l = Math.max(40, Math.min(l, 70));
 
                     const fastColor = `hsl(${h}, ${s}%, ${l}%)`;
 
-                    // Update CSS variables smooth transition
+
                     document.documentElement.style.setProperty('--orb1-color', fastColor);
 
-                    // Variations for other orbs
+
                     document.documentElement.style.setProperty('--orb2-color', `hsl(${(h + 30) % 360}, ${s}%, ${l}%)`);
                     document.documentElement.style.setProperty('--orb3-color', `hsl(${(h + 60) % 360}, ${s}%, ${l}%)`);
                 }
             }
 
 
-            // ========== CAROUSEL LOGIC ==========
+            // Carousel
             function setupCarousel(wrapper) {
                 const track = wrapper.querySelector('.carousel-track');
                 const slides = Array.from(track.children);
@@ -1679,11 +1677,11 @@
                     dots.forEach(d => d.classList.remove('active'));
                     if (dots[currentIndex]) dots[currentIndex].classList.add('active');
 
-                    // Mark active slide for color observer
+
                     slides.forEach(s => s.classList.remove('active-slide'));
                     slides[currentIndex].classList.add('active-slide');
 
-                    // If this carousel is currently in viewport, update color immediately
+
                     if (isElementInViewport(wrapper)) {
                         const activeImg = slides[currentIndex].querySelector('img');
                         if (activeImg) applyColorFromImage(activeImg);
@@ -1697,7 +1695,7 @@
                     updateSlides();
                 }
 
-                // Create Dots & Listeners if more than one slide
+
                 if (slides.length > 1) {
                     slides.forEach((_, index) => {
                         const dot = document.createElement('div');
@@ -1710,7 +1708,7 @@
                     nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
                     prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
                 } else {
-                    // Hide controls if only one image
+
                     if (nextBtn) nextBtn.style.display = 'none';
                     if (prevBtn) prevBtn.style.display = 'none';
                     if (dotsContainer) dotsContainer.style.display = 'none';
@@ -1718,11 +1716,11 @@
 
                 dots = Array.from(dotsContainer.children);
 
-                // Initialize
+
                 slides[0].classList.add('active-slide');
             }
 
-            // Initialize all carousels
+
             document.querySelectorAll('.carousel-container').forEach(setupCarousel);
 
             function isElementInViewport(el) {
@@ -1735,7 +1733,7 @@
                 );
             }
 
-            // Observe all experience images (targeted at active slide image)
+            // Image Observer
             // We need to re-observe if carousel changes, but simpler strategy:
             // The observer targets specific IMGs. If they are in viewport, they trigger.
             // But for carousel, all slides are technically "in viewport" if overflow is hidden? 
@@ -1803,10 +1801,10 @@
                 });
             }
 
-            // Initial role
+
             roleElement.textContent = roles[0];
 
-            // Start cycling after initial delay
+
             setTimeout(() => {
                 setInterval(updateRole, 4000);
             }, 400);
