@@ -406,6 +406,24 @@
             animation-delay: 1s;
         }
 
+        /* CLS fix: Reserve space for experience items before JS loads */
+        .experience-item {
+            min-height: 200px;
+            contain: layout style;
+        }
+
+        /* CLS fix: Minimum height for carousel to prevent major layout shift */
+        .carousel-container {
+            min-height: 200px;
+        }
+
+        /* Let images determine their natural aspect ratio */
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         .animated-text.changing {
             animation: textChange 1.5s ease-in-out;
         }
@@ -536,6 +554,8 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+            /* CLS fix: Prevent layout shift while images load */
+            background-color: #f0f0f0;
         }
 
         .carousel-container:hover {
@@ -847,13 +867,13 @@
                 </div>
                 <div class="hero-text">
                     <h1>Zen Aufa Bahalwan</h1>
-                    <div class="animated-text" id="role-text"></div>
+                    <div class="animated-text" id="role-text">Tech Delivery Lead at Okadoc, UAE</div>
                 </div>
             </div>
         </div>
         <div class="scroll-arrow">
             <img src="./uploads/homepage/caret-down.png" alt="Scroll Down Arrow"
-                title="Scroll Down to Experience Section">
+                title="Scroll Down to Experience Section" width="40" height="40">
         </div>
     </section>
 
@@ -1479,26 +1499,36 @@
             requestAnimationFrame(raf);
 
             // ===========================================
-            // SCROLL PROGRESS BAR
+            // SCROLL PROGRESS BAR & VIGNETTE (Optimized to avoid reflows)
             // ===========================================
 
             const scrollProgress = document.querySelector('.scroll-progress');
-            window.addEventListener('scroll', () => {
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const progress = (scrollTop / scrollHeight) * 100;
-                scrollProgress.style.transform = `scaleX(${progress / 100})`;
+            const vignetteOverlay = document.querySelector('.vignette-overlay');
+
+            // Cache dimensions to avoid forced reflows on every scroll
+            let cachedScrollHeight = document.documentElement.scrollHeight;
+            let cachedClientHeight = document.documentElement.clientHeight;
+            let cachedMaxScroll = cachedScrollHeight - cachedClientHeight;
+
+            // Update cached values on resize (not on every scroll)
+            window.addEventListener('resize', () => {
+                cachedScrollHeight = document.documentElement.scrollHeight;
+                cachedClientHeight = document.documentElement.clientHeight;
+                cachedMaxScroll = cachedScrollHeight - cachedClientHeight;
             }, { passive: true });
 
-            // ===========================================
-            // VIGNETTE GLOW INTENSITY
-            // ===========================================
-
-            const vignetteOverlay = document.querySelector('.vignette-overlay');
+            // Combined scroll handler with cached values
             window.addEventListener('scroll', () => {
-                const scrollPercentage = window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight);
-                const opacity = 0.3 + (scrollPercentage * 0.3);
-                vignetteOverlay.style.opacity = opacity;
+                const scrollTop = window.pageYOffset;
+
+                // Scroll progress bar
+                if (cachedMaxScroll > 0) {
+                    const progress = scrollTop / cachedMaxScroll;
+                    scrollProgress.style.transform = `scaleX(${progress})`;
+
+                    // Vignette opacity
+                    vignetteOverlay.style.opacity = 0.3 + (progress * 0.3);
+                }
             }, { passive: true });
 
             // ===========================================
@@ -1537,40 +1567,33 @@
             }
 
             // ===========================================
-            // SCROLL REVEAL ANIMATIONS
+            // SCROLL REVEAL ANIMATIONS (Using IntersectionObserver to avoid forced reflows)
             // ===========================================
 
-            let ticking = false;
             const experienceItems = document.querySelectorAll('.experience-item');
 
-            function handleScrollAnimation() {
-                let revealedCount = 0;
-                const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-
-                experienceItems.forEach((item) => {
-                    if (item.classList.contains('visible')) return;
-
-                    const rect = item.getBoundingClientRect();
-                    if (rect.top <= windowHeight * 0.9) {
+            // Use IntersectionObserver instead of scroll + getBoundingClientRect
+            // This avoids forced reflows by letting the browser handle visibility checks
+            const revealObserver = new IntersectionObserver((entries) => {
+                // Process all visible entries in this batch together
+                let batchIndex = 0;
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !entry.target.classList.contains('visible')) {
+                        // Minimal stagger (30ms) for smooth batch reveal without long delays
                         setTimeout(() => {
-                            item.classList.add('visible');
-                        }, revealedCount * 100);
-                        revealedCount++;
+                            entry.target.classList.add('visible');
+                        }, batchIndex * 30);
+                        batchIndex++;
+                        // Stop observing once revealed
+                        revealObserver.unobserve(entry.target);
                     }
                 });
-                ticking = false;
-            }
+            }, {
+                threshold: 0.05, // Lower threshold for earlier trigger
+                rootMargin: '50px 0px 0px 0px' // Start loading a bit before visible
+            });
 
-            window.addEventListener('scroll', function () {
-                if (!ticking) {
-                    window.requestAnimationFrame(function () {
-                        handleScrollAnimation();
-                    });
-                    ticking = true;
-                }
-            }, { passive: true });
-
-            handleScrollAnimation();
+            experienceItems.forEach(item => revealObserver.observe(item));
 
             // ===========================================
             // SCROLL ARROW CLICK
@@ -1735,14 +1758,28 @@
 
             document.querySelectorAll('.carousel-container').forEach(setupCarousel);
 
+            // ===========================================
+            // VIEWPORT VISIBILITY TRACKING (Cached to avoid forced reflows)
+            // ===========================================
+
+            // Track visibility with IntersectionObserver instead of getBoundingClientRect
+            const visibilityMap = new WeakMap();
+
+            const viewportObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    visibilityMap.set(entry.target, entry.isIntersecting);
+                });
+            }, { threshold: 0.1 });
+
+            // Observe all carousel containers
+            document.querySelectorAll('.carousel-container').forEach(el => {
+                visibilityMap.set(el, false);
+                viewportObserver.observe(el);
+            });
+
+            // Cached check - no forced reflow!
             function isElementInViewport(el) {
-                const rect = el.getBoundingClientRect();
-                return (
-                    rect.top >= 0 &&
-                    rect.left >= 0 &&
-                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-                );
+                return visibilityMap.get(el) || false;
             }
 
             // ===========================================
