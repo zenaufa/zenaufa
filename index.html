@@ -896,6 +896,171 @@
         // Just edit the arrays below to update content
         // ===========================================
 
+        // ===========================================
+        // RESPONSIVE IMAGE CONFIGURATION
+        // Defines available sizes for each image path
+        // ===========================================
+
+        const RESPONSIVE_IMAGES = {
+            // 2025/03 folder images
+            './uploads/2025/03/IMG_20240314_224245_294.jpg': {
+                sizes: [
+                    { width: 480, src: './uploads/2025/03/IMG_20240314_224245_294-480x416.jpg', webp: './uploads/2025/03/IMG_20240314_224245_294-480x416.jpg.webp' },
+                    { width: 980, src: './uploads/2025/03/IMG_20240314_224245_294-980x849.jpg', webp: './uploads/2025/03/IMG_20240314_224245_294-980x849.jpg.webp' },
+                    { width: 1280, src: './uploads/2025/03/IMG_20240314_224245_294-1280x1108.jpg', webp: './uploads/2025/03/IMG_20240314_224245_294-1280x1108.jpg.webp' }
+                ],
+                fallback: './uploads/2025/03/IMG_20240314_224245_294.jpg',
+                webpFallback: './uploads/2025/03/IMG_20240314_224245_294.jpg.webp'
+            },
+            './uploads/2025/03/Screenshot-2025-03-19-at-06.02.59-1024x790.webp': {
+                sizes: [
+                    { width: 480, src: './uploads/2025/03/Screenshot-2025-03-19-at-06.02.59-480x370.webp' },
+                    { width: 980, src: './uploads/2025/03/Screenshot-2025-03-19-at-06.02.59-980x756.webp' },
+                    { width: 1024, src: './uploads/2025/03/Screenshot-2025-03-19-at-06.02.59-1024x790.webp' }
+                ],
+                fallback: './uploads/2025/03/Screenshot-2025-03-19-at-06.02.59-1024x790.webp'
+            },
+            // 2021/03 folder images with responsive variants
+            './uploads/2021/03/photo_2021-03-02-03.44.28-1024x768.jpeg': {
+                sizes: [
+                    { width: 480, src: './uploads/2021/03/photo_2021-03-02-03.44.28-480x360.jpeg', webp: './uploads/2021/03/photo_2021-03-02-03.44.28-480x360.jpeg.webp' },
+                    { width: 980, src: './uploads/2021/03/photo_2021-03-02-03.44.28-980x735.jpeg', webp: './uploads/2021/03/photo_2021-03-02-03.44.28-980x735.jpeg.webp' },
+                    { width: 1024, src: './uploads/2021/03/photo_2021-03-02-03.44.28-1024x768.jpeg', webp: './uploads/2021/03/photo_2021-03-02-03.44.28-1024x768.jpeg.webp' }
+                ],
+                fallback: './uploads/2021/03/photo_2021-03-02-03.44.28-1024x768.jpeg',
+                webpFallback: './uploads/2021/03/photo_2021-03-02-03.44.28-1024x768.jpeg.webp'
+            },
+            './uploads/2021/03/58627258_861773094163255_1697284428708970496_o-1024x498.jpeg': {
+                sizes: [
+                    { width: 480, src: './uploads/2021/03/58627258_861773094163255_1697284428708970496_o-480x233.jpeg', webp: './uploads/2021/03/58627258_861773094163255_1697284428708970496_o-480x233.jpeg.webp' },
+                    { width: 980, src: './uploads/2021/03/58627258_861773094163255_1697284428708970496_o-980x476.jpeg', webp: './uploads/2021/03/58627258_861773094163255_1697284428708970496_o-980x476.jpeg.webp' },
+                    { width: 1024, src: './uploads/2021/03/58627258_861773094163255_1697284428708970496_o-1024x498.jpeg', webp: './uploads/2021/03/58627258_861773094163255_1697284428708970496_o-1024x498.jpeg.webp' }
+                ],
+                fallback: './uploads/2021/03/58627258_861773094163255_1697284428708970496_o-1024x498.jpeg',
+                webpFallback: './uploads/2021/03/58627258_861773094163255_1697284428708970496_o-1024x498.jpeg.webp'
+            },
+            './uploads/2021/03/30052458_616093635397870_7153621626247636849_o-1024x768.jpeg': {
+                sizes: [
+                    { width: 480, src: './uploads/2021/03/30052458_616093635397870_7153621626247636849_o-480x360.jpeg', webp: './uploads/2021/03/30052458_616093635397870_7153621626247636849_o-480x360.jpeg.webp' },
+                    { width: 980, src: './uploads/2021/03/30052458_616093635397870_7153621626247636849_o-980x735.jpeg', webp: './uploads/2021/03/30052458_616093635397870_7153621626247636849_o-980x735.jpeg.webp' },
+                    { width: 1024, src: './uploads/2021/03/30052458_616093635397870_7153621626247636849_o-1024x768.jpeg', webp: './uploads/2021/03/30052458_616093635397870_7153621626247636849_o-1024x768.jpeg.webp' }
+                ],
+                fallback: './uploads/2021/03/30052458_616093635397870_7153621626247636849_o-1024x768.jpeg',
+                webpFallback: './uploads/2021/03/30052458_616093635397870_7153621626247636849_o-1024x768.jpeg.webp'
+            },
+            './uploads/2021/03/16178657_404980159842553_7400643207369749568_o-1024x768.jpeg': {
+                sizes: [
+                    { width: 480, src: './uploads/2021/03/16178657_404980159842553_7400643207369749568_o-480x360.jpeg', webp: './uploads/2021/03/16178657_404980159842553_7400643207369749568_o-480x360.jpeg.webp' },
+                    { width: 980, src: './uploads/2021/03/16178657_404980159842553_7400643207369749568_o-980x735.jpeg', webp: './uploads/2021/03/16178657_404980159842553_7400643207369749568_o-980x735.jpeg.webp' },
+                    { width: 1024, src: './uploads/2021/03/16178657_404980159842553_7400643207369749568_o-1024x768.jpeg', webp: './uploads/2021/03/16178657_404980159842553_7400643207369749568_o-1024x768.jpeg.webp' }
+                ],
+                fallback: './uploads/2021/03/16178657_404980159842553_7400643207369749568_o-1024x768.jpeg',
+                webpFallback: './uploads/2021/03/16178657_404980159842553_7400643207369749568_o-1024x768.jpeg.webp'
+            },
+            './uploads/2021/03/37500598_681500432190523_6196222216972009472_o-1024x1024.jpeg': {
+                sizes: [
+                    { width: 480, src: './uploads/2021/03/37500598_681500432190523_6196222216972009472_o-480x480.jpeg', webp: './uploads/2021/03/37500598_681500432190523_6196222216972009472_o-480x480.jpeg.webp' },
+                    { width: 980, src: './uploads/2021/03/37500598_681500432190523_6196222216972009472_o-980x980.jpeg', webp: './uploads/2021/03/37500598_681500432190523_6196222216972009472_o-980x980.jpeg.webp' },
+                    { width: 1024, src: './uploads/2021/03/37500598_681500432190523_6196222216972009472_o-1024x1024.jpeg', webp: './uploads/2021/03/37500598_681500432190523_6196222216972009472_o-1024x1024.jpeg.webp' }
+                ],
+                fallback: './uploads/2021/03/37500598_681500432190523_6196222216972009472_o-1024x1024.jpeg',
+                webpFallback: './uploads/2021/03/37500598_681500432190523_6196222216972009472_o-1024x1024.jpeg.webp'
+            },
+            './uploads/2021/03/ES4GeYcUMAEj-fK-1024x683.jpeg': {
+                sizes: [
+                    { width: 480, src: './uploads/2021/03/ES4GeYcUMAEj-fK-480x320.jpeg', webp: './uploads/2021/03/ES4GeYcUMAEj-fK-480x320.jpeg.webp' },
+                    { width: 980, src: './uploads/2021/03/ES4GeYcUMAEj-fK-980x654.jpeg', webp: './uploads/2021/03/ES4GeYcUMAEj-fK-980x654.jpeg.webp' },
+                    { width: 1024, src: './uploads/2021/03/ES4GeYcUMAEj-fK-1024x683.jpeg', webp: './uploads/2021/03/ES4GeYcUMAEj-fK-1024x683.jpeg.webp' }
+                ],
+                fallback: './uploads/2021/03/ES4GeYcUMAEj-fK-1024x683.jpeg',
+                webpFallback: './uploads/2021/03/ES4GeYcUMAEj-fK-1024x683.jpeg.webp'
+            },
+            './uploads/2021/03/74470889_996641824009714_5304678605089931264_o-1024x987.jpeg': {
+                sizes: [
+                    { width: 480, src: './uploads/2021/03/74470889_996641824009714_5304678605089931264_o-480x463.jpeg', webp: './uploads/2021/03/74470889_996641824009714_5304678605089931264_o-480x463.jpeg.webp' },
+                    { width: 980, src: './uploads/2021/03/74470889_996641824009714_5304678605089931264_o-980x945.jpeg', webp: './uploads/2021/03/74470889_996641824009714_5304678605089931264_o-980x945.jpeg.webp' },
+                    { width: 1024, src: './uploads/2021/03/74470889_996641824009714_5304678605089931264_o-1024x987.jpeg', webp: './uploads/2021/03/74470889_996641824009714_5304678605089931264_o-1024x987.jpeg.webp' }
+                ],
+                fallback: './uploads/2021/03/74470889_996641824009714_5304678605089931264_o-1024x987.jpeg',
+                webpFallback: './uploads/2021/03/74470889_996641824009714_5304678605089931264_o-1024x987.jpeg.webp'
+            },
+            './uploads/2021/03/44913264532_24985544a1_k-1024x683.jpg': {
+                sizes: [
+                    { width: 480, src: './uploads/2021/03/44913264532_24985544a1_k-480x320.jpg', webp: './uploads/2021/03/44913264532_24985544a1_k-480x320.jpg.webp' },
+                    { width: 980, src: './uploads/2021/03/44913264532_24985544a1_k-980x653.jpg', webp: './uploads/2021/03/44913264532_24985544a1_k-980x653.jpg.webp' },
+                    { width: 1024, src: './uploads/2021/03/44913264532_24985544a1_k-1024x683.jpg' }
+                ],
+                fallback: './uploads/2021/03/44913264532_24985544a1_k-1024x683.jpg'
+            },
+            './uploads/2021/03/39921998630_0771b15668_k-1024x683.jpg': {
+                sizes: [
+                    { width: 480, src: './uploads/2021/03/39921998630_0771b15668_k-480x320.jpg', webp: './uploads/2021/03/39921998630_0771b15668_k-480x320.jpg.webp' },
+                    { width: 980, src: './uploads/2021/03/39921998630_0771b15668_k-980x653.jpg', webp: './uploads/2021/03/39921998630_0771b15668_k-980x653.jpg.webp' },
+                    { width: 1024, src: './uploads/2021/03/39921998630_0771b15668_k-1024x683.jpg' }
+                ],
+                fallback: './uploads/2021/03/39921998630_0771b15668_k-1024x683.jpg'
+            },
+            './uploads/2021/03/20024197_494781024195799_7720302361075107942_o-1024x683.jpeg': {
+                sizes: [
+                    { width: 480, src: './uploads/2021/03/20024197_494781024195799_7720302361075107942_o-480x320.jpeg', webp: './uploads/2021/03/20024197_494781024195799_7720302361075107942_o-480x320.jpeg.webp' },
+                    { width: 980, src: './uploads/2021/03/20024197_494781024195799_7720302361075107942_o-980x653.jpeg', webp: './uploads/2021/03/20024197_494781024195799_7720302361075107942_o-980x653.jpeg.webp' },
+                    { width: 1024, src: './uploads/2021/03/20024197_494781024195799_7720302361075107942_o-1024x683.jpeg' }
+                ],
+                fallback: './uploads/2021/03/20024197_494781024195799_7720302361075107942_o-1024x683.jpeg'
+            },
+            './uploads/2021/03/22339480_530618887278679_8343948139671591405_o-1024x579.jpeg': {
+                sizes: [
+                    { width: 480, src: './uploads/2021/03/22339480_530618887278679_8343948139671591405_o-480x272.jpeg', webp: './uploads/2021/03/22339480_530618887278679_8343948139671591405_o-480x272.jpeg.webp' },
+                    { width: 980, src: './uploads/2021/03/22339480_530618887278679_8343948139671591405_o-980x554.jpeg', webp: './uploads/2021/03/22339480_530618887278679_8343948139671591405_o-980x554.jpeg.webp' },
+                    { width: 1024, src: './uploads/2021/03/22339480_530618887278679_8343948139671591405_o-1024x579.jpeg', webp: './uploads/2021/03/22339480_530618887278679_8343948139671591405_o-1024x579.jpeg.webp' }
+                ],
+                fallback: './uploads/2021/03/22339480_530618887278679_8343948139671591405_o-1024x579.jpeg',
+                webpFallback: './uploads/2021/03/22339480_530618887278679_8343948139671591405_o-1024x579.jpeg.webp'
+            },
+            './uploads/2021/03/14500296_347802672226969_5444943720186505152_o-1024x768.jpeg': {
+                sizes: [
+                    { width: 480, src: './uploads/2021/03/14500296_347802672226969_5444943720186505152_o-480x360.jpeg', webp: './uploads/2021/03/14500296_347802672226969_5444943720186505152_o-480x360.jpeg.webp' },
+                    { width: 980, src: './uploads/2021/03/14500296_347802672226969_5444943720186505152_o-980x735.jpeg', webp: './uploads/2021/03/14500296_347802672226969_5444943720186505152_o-980x735.jpeg.webp' },
+                    { width: 1024, src: './uploads/2021/03/14500296_347802672226969_5444943720186505152_o-1024x768.jpeg' }
+                ],
+                fallback: './uploads/2021/03/14500296_347802672226969_5444943720186505152_o-1024x768.jpeg'
+            },
+            // 2022/06 folder images
+            './uploads/2022/06/1651207617878-1024x786.jpeg': {
+                sizes: [
+                    { width: 480, src: './uploads/2022/06/1651207617878-480x368.jpeg', webp: './uploads/2022/06/1651207617878-480x368.jpeg.webp' },
+                    { width: 980, src: './uploads/2022/06/1651207617878-980x752.jpeg', webp: './uploads/2022/06/1651207617878-980x752.jpeg.webp' },
+                    { width: 1024, src: './uploads/2022/06/1651207617878-1024x786.jpeg' }
+                ],
+                fallback: './uploads/2022/06/1651207617878-1024x786.jpeg'
+            },
+            './uploads/2022/06/1622427510072.jpeg': {
+                sizes: [
+                    { width: 480, src: './uploads/2022/06/1622427510072-480x371.jpeg', webp: './uploads/2022/06/1622427510072-480x371.jpeg.webp' },
+                    { width: 800, src: './uploads/2022/06/1622427510072.jpeg', webp: './uploads/2022/06/1622427510072.jpeg.webp' }
+                ],
+                fallback: './uploads/2022/06/1622427510072.jpeg',
+                webpFallback: './uploads/2022/06/1622427510072.jpeg.webp'
+            },
+            './uploads/2022/06/1622427510658-1.jpeg': {
+                sizes: [
+                    { width: 480, src: './uploads/2022/06/1622427510658-1-480x371.jpeg', webp: './uploads/2022/06/1622427510658-1-480x371.jpeg.webp' },
+                    { width: 800, src: './uploads/2022/06/1622427510658-1.jpeg', webp: './uploads/2022/06/1622427510658-1.jpeg.webp' }
+                ],
+                fallback: './uploads/2022/06/1622427510658-1.jpeg',
+                webpFallback: './uploads/2022/06/1622427510658-1.jpeg.webp'
+            },
+            // 2022/02 folder images
+            './uploads/2022/02/Screen-Shot-2022-02-05-at-12.08.48-1024x791.png': {
+                sizes: [
+                    { width: 480, src: './uploads/2022/02/Screen-Shot-2022-02-05-at-12.08.48-480x371.png', webp: './uploads/2022/02/Screen-Shot-2022-02-05-at-12.08.48-480x371.png.webp' },
+                    { width: 980, src: './uploads/2022/02/Screen-Shot-2022-02-05-at-12.08.48-980x757.png', webp: './uploads/2022/02/Screen-Shot-2022-02-05-at-12.08.48-980x757.png.webp' },
+                    { width: 1024, src: './uploads/2022/02/Screen-Shot-2022-02-05-at-12.08.48-1024x791.png' }
+                ],
+                fallback: './uploads/2022/02/Screen-Shot-2022-02-05-at-12.08.48-1024x791.png'
+            }
+        };
+
         // Work Experience Data
         const experienceData = [
             {
@@ -910,7 +1075,7 @@
             {
                 title: "Agile Coach",
                 company: "PT Ekipa Agile Consultancy",
-                year: "March 2023 – March 2022",
+                year: "March 2021 – March 2022",
                 desc: "Supporting banking industry clients in adopting and improving Agile ways of working within IT and business teams. Implementing OKRs, conducting squad health checks, and facilitating quarterly top management meetings.",
                 images: [
                     { src: "./uploads/2025/03/IMG_0589-1024x768.webp", alt: "Agile Coach at Ekipa" }
@@ -1134,31 +1299,55 @@
         // ===========================================
 
         /**
-         * Creates responsive srcset for an image
-         */
-        function createSrcset(src) {
-            const basePath = src.replace(/\.(jpg|jpeg|png|webp)$/i, '');
-            const ext = src.match(/\.(jpg|jpeg|png|webp)$/i)?.[0] || '.jpg';
-            const webpExt = ext === '.webp' ? '.webp' : ext + '.webp';
-
-            // Generate srcset for common sizes
-            return `${basePath}-980x${Math.round(980 * 0.75)}${ext} 980w, ${basePath}-480x${Math.round(480 * 0.75)}${ext} 480w`;
-        }
-
-        /**
-         * Renders a single image slide
+         * Generates responsive picture element with srcset
+         * Uses WebP when available with JPEG/PNG fallback
          */
         function renderSlide(image, isFirst = false) {
             const loading = isFirst ? '' : 'loading="lazy"';
+            const responsive = RESPONSIVE_IMAGES[image.src];
+
+            // If no responsive config, fall back to simple img
+            if (!responsive) {
+                return `
+                    <div class="carousel-slide">
+                        <span class="et_pb_image_wrap">
+                            <img ${loading} decoding="async" 
+                                src="${image.src}" 
+                                alt="${image.alt}" 
+                                title="${image.alt}"
+                                sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
+                                style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                        </span>
+                        <div class="carousel-slide-overlay"></div>
+                    </div>
+                `;
+            }
+
+            // Build WebP srcset (preferred)
+            const webpSrcset = responsive.sizes
+                .filter(s => s.webp)
+                .map(s => `${s.webp} ${s.width}w`)
+                .join(', ');
+
+            // Build fallback srcset (jpeg/png)
+            const fallbackSrcset = responsive.sizes
+                .map(s => `${s.src} ${s.width}w`)
+                .join(', ');
+
+            const sizes = "(max-width: 480px) 480px, (max-width: 980px) 980px, 1024px";
+
             return `
                 <div class="carousel-slide">
                     <span class="et_pb_image_wrap">
-                        <img ${loading} decoding="async" 
-                            src="${image.src}" 
-                            alt="${image.alt}" 
-                            title="${image.alt}"
-                            sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"
-                            style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                        <picture>
+                            ${webpSrcset ? `<source type="image/webp" srcset="${webpSrcset}" sizes="${sizes}">` : ''}
+                            <source srcset="${fallbackSrcset}" sizes="${sizes}">
+                            <img ${loading} decoding="async" 
+                                src="${responsive.fallback}" 
+                                alt="${image.alt}" 
+                                title="${image.alt}"
+                                style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                        </picture>
                     </span>
                     <div class="carousel-slide-overlay"></div>
                 </div>
