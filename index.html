@@ -159,6 +159,10 @@
             href="https://fonts.googleapis.com/css2?family=Overpass:wght@100;200;300;400;500;600;700;800;900&display=swap">
     </noscript>
 
+    <!-- Preload LCP image for faster render -->
+    <link rel="preload" href="./uploads/homepage/Screenshot-2025-03-19-at-06.07.43-829x1024.webp" as="image"
+        type="image/webp" fetchpriority="high">
+
     <style>
         /* ============================
            CSS VARIABLES & BASE STYLES
@@ -266,7 +270,7 @@
 
         .hero-image {
             flex: 1;
-            animation: slideRight 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+            /* Removed animation to prevent blocking LCP render */
         }
 
         .hero-image img {
@@ -922,7 +926,6 @@
         // ===========================================
 
         const RESPONSIVE_IMAGES = {
-            // homepage folder images
             './uploads/homepage/IMG_20240314_224245_294.jpg': {
                 sizes: [
                     { width: 480, src: './uploads/homepage/IMG_20240314_224245_294-480x416.jpg', webp: './uploads/homepage/IMG_20240314_224245_294-480x416.jpg.webp' },
@@ -940,7 +943,6 @@
                 ],
                 fallback: './uploads/homepage/Screenshot-2025-03-19-at-06.02.59-1024x790.webp'
             },
-            // homepage folder images with responsive variants
             './uploads/homepage/photo_2021-03-02-03.44.28-1024x768.jpeg': {
                 sizes: [
                     { width: 480, src: './uploads/homepage/photo_2021-03-02-03.44.28-480x360.jpeg', webp: './uploads/homepage/photo_2021-03-02-03.44.28-480x360.jpeg.webp' },
@@ -1045,7 +1047,6 @@
                 ],
                 fallback: './uploads/homepage/14500296_347802672226969_5444943720186505152_o-1024x768.jpeg'
             },
-            // homepage folder images
             './uploads/homepage/1651207617878-1024x786.jpeg': {
                 sizes: [
                     { width: 480, src: './uploads/homepage/1651207617878-480x368.jpeg', webp: './uploads/homepage/1651207617878-480x368.jpeg.webp' },
@@ -1070,7 +1071,6 @@
                 fallback: './uploads/homepage/1622427510658-1.jpeg',
                 webpFallback: './uploads/homepage/1622427510658-1.jpeg.webp'
             },
-            // homepage folder images
             './uploads/homepage/Screen-Shot-2022-02-05-at-12.08.48-1024x791.png': {
                 sizes: [
                     { width: 480, src: './uploads/homepage/Screen-Shot-2022-02-05-at-12.08.48-480x371.png', webp: './uploads/homepage/Screen-Shot-2022-02-05-at-12.08.48-480x371.png.webp' },
@@ -1078,6 +1078,152 @@
                     { width: 1024, src: './uploads/homepage/Screen-Shot-2022-02-05-at-12.08.48-1024x791.png' }
                 ],
                 fallback: './uploads/homepage/Screen-Shot-2022-02-05-at-12.08.48-1024x791.png'
+            },
+            './uploads/homepage/IMG_0589-1024x768.webp': {
+                sizes: [
+                    { width: 468, src: './uploads/homepage/IMG_0589-1024x768_eozlti_c_scale,w_468.webp' },
+                    { width: 620, src: './uploads/homepage/IMG_0589-1024x768_eozlti_c_scale,w_620.webp' },
+                    { width: 803, src: './uploads/homepage/IMG_0589-1024x768_eozlti_c_scale,w_803.webp' },
+                    { width: 994, src: './uploads/homepage/IMG_0589-1024x768_eozlti_c_scale,w_994.webp' },
+                    { width: 1024, src: './uploads/homepage/IMG_0589-1024x768_eozlti_c_scale,w_1024.webp' }
+                ],
+                fallback: './uploads/homepage/IMG_0589-1024x768.webp'
+            },
+            './uploads/homepage/safe.jpg': {
+                sizes: [
+                    { width: 474, src: './uploads/homepage/safe_vvf7nv_c_scale,w_474.jpg' },
+                    { width: 820, src: './uploads/homepage/safe_vvf7nv_c_scale,w_820.jpg' },
+                    { width: 909, src: './uploads/homepage/safe_vvf7nv_c_scale,w_909.jpg' },
+                    { width: 1116, src: './uploads/homepage/safe_vvf7nv_c_scale,w_1116.jpg' },
+                    { width: 1291, src: './uploads/homepage/safe_vvf7nv_c_scale,w_1291.jpg' },
+                    { width: 1400, src: './uploads/homepage/safe_vvf7nv_c_scale,w_1400.jpg' }
+                ],
+                fallback: './uploads/homepage/safe.jpg'
+            },
+            './uploads/homepage/Azure AI Document Intelligence.webp': {
+                sizes: [
+                    { width: 612, src: './uploads/homepage/Azure_AI_Document_Intelligence_aaiepe_c_scale,w_612.webp' },
+                    { width: 971, src: './uploads/homepage/Azure_AI_Document_Intelligence_aaiepe_c_scale,w_971.webp' },
+                    { width: 1281, src: './uploads/homepage/Azure_AI_Document_Intelligence_aaiepe_c_scale,w_1281.webp' },
+                    { width: 1400, src: './uploads/homepage/Azure_AI_Document_Intelligence_aaiepe_c_scale,w_1400.webp' }
+                ],
+                fallback: './uploads/homepage/Azure AI Document Intelligence.webp'
+            },
+            './uploads/homepage/Agile Indonesia Unconference 2022.jpeg': {
+                sizes: [
+                    { width: 415, src: './uploads/homepage/Agile_Indonesia_Unconference_2022_r9oacx_c_scale,w_415.jpg' },
+                    { width: 587, src: './uploads/homepage/Agile_Indonesia_Unconference_2022_r9oacx_c_scale,w_587.jpg' },
+                    { width: 738, src: './uploads/homepage/Agile_Indonesia_Unconference_2022_r9oacx_c_scale,w_738.jpg' },
+                    { width: 894, src: './uploads/homepage/Agile_Indonesia_Unconference_2022_r9oacx_c_scale,w_894.jpg' },
+                    { width: 1014, src: './uploads/homepage/Agile_Indonesia_Unconference_2022_r9oacx_c_scale,w_1014.jpg' },
+                    { width: 1129, src: './uploads/homepage/Agile_Indonesia_Unconference_2022_r9oacx_c_scale,w_1129.jpg' },
+                    { width: 1249, src: './uploads/homepage/Agile_Indonesia_Unconference_2022_r9oacx_c_scale,w_1249.jpg' },
+                    { width: 1400, src: './uploads/homepage/Agile_Indonesia_Unconference_2022_r9oacx_c_scale,w_1400.jpg' }
+                ],
+                fallback: './uploads/homepage/Agile Indonesia Unconference 2022.jpeg'
+            },
+            './uploads/homepage/Agile Indonesia Unconference 2024_1.jpeg': {
+                sizes: [
+                    { width: 452, src: './uploads/homepage/Agile_Indonesia_Unconference_2024_1_qu7ddi_c_scale,w_452.jpg' },
+                    { width: 513, src: './uploads/homepage/Agile_Indonesia_Unconference_2024_1_qu7ddi_c_scale,w_513.jpg' },
+                    { width: 879, src: './uploads/homepage/Agile_Indonesia_Unconference_2024_1_qu7ddi_c_scale,w_879.jpg' },
+                    { width: 1193, src: './uploads/homepage/Agile_Indonesia_Unconference_2024_1_qu7ddi_c_scale,w_1193.jpg' },
+                    { width: 1342, src: './uploads/homepage/Agile_Indonesia_Unconference_2024_1_qu7ddi_c_scale,w_1342.jpg' },
+                    { width: 1400, src: './uploads/homepage/Agile_Indonesia_Unconference_2024_1_qu7ddi_c_scale,w_1400.jpg' }
+                ],
+                fallback: './uploads/homepage/Agile Indonesia Unconference 2024_1.jpeg'
+            },
+            './uploads/homepage/Agile Indonesia Unconference 2024_2.jpeg': {
+                sizes: [
+                    { width: 571, src: './uploads/homepage/Agile_Indonesia_Unconference_2024_2_cpjce2_c_scale,w_571.jpg' },
+                    { width: 838, src: './uploads/homepage/Agile_Indonesia_Unconference_2024_2_cpjce2_c_scale,w_838.jpg' },
+                    { width: 1031, src: './uploads/homepage/Agile_Indonesia_Unconference_2024_2_cpjce2_c_scale,w_1031.jpg' },
+                    { width: 1217, src: './uploads/homepage/Agile_Indonesia_Unconference_2024_2_cpjce2_c_scale,w_1217.jpg' },
+                    { width: 1400, src: './uploads/homepage/Agile_Indonesia_Unconference_2024_2_cpjce2_c_scale,w_1400.jpg' }
+                ],
+                fallback: './uploads/homepage/Agile Indonesia Unconference 2024_2.jpeg'
+            },
+            './uploads/homepage/Agile Indonesia Unconference 2025_1.jpeg': {
+                sizes: [
+                    { width: 484, src: './uploads/homepage/Agile_Indonesia_Unconference_2025_1_u0kh14_c_scale,w_484.jpg' },
+                    { width: 710, src: './uploads/homepage/Agile_Indonesia_Unconference_2025_1_u0kh14_c_scale,w_710.jpg' },
+                    { width: 886, src: './uploads/homepage/Agile_Indonesia_Unconference_2025_1_u0kh14_c_scale,w_886.jpg' },
+                    { width: 1066, src: './uploads/homepage/Agile_Indonesia_Unconference_2025_1_u0kh14_c_scale,w_1066.jpg' },
+                    { width: 1232, src: './uploads/homepage/Agile_Indonesia_Unconference_2025_1_u0kh14_c_scale,w_1232.jpg' },
+                    { width: 1395, src: './uploads/homepage/Agile_Indonesia_Unconference_2025_1_u0kh14_c_scale,w_1395.jpg' },
+                    { width: 1400, src: './uploads/homepage/Agile_Indonesia_Unconference_2025_1_u0kh14_c_scale,w_1400.jpg' }
+                ],
+                fallback: './uploads/homepage/Agile Indonesia Unconference 2025_1.jpeg'
+            },
+            './uploads/homepage/Agile Indonesia Unconference 2025_2.jpeg': {
+                sizes: [
+                    { width: 528, src: './uploads/homepage/Agile_Indonesia_Unconference_2025_2_wouh9x_c_scale,w_528.jpg' },
+                    { width: 1060, src: './uploads/homepage/Agile_Indonesia_Unconference_2025_2_wouh9x_c_scale,w_1060.jpg' }
+                ],
+                fallback: './uploads/homepage/Agile Indonesia Unconference 2025_2.jpeg'
+            },
+            './uploads/homepage/Business Transformation Conference 2024_1.jpeg': {
+                sizes: [
+                    { width: 497, src: './uploads/homepage/Business_Transformation_Conference_2024_1_ys618w_c_scale,w_497.jpg' },
+                    { width: 997, src: './uploads/homepage/Business_Transformation_Conference_2024_1_ys618w_c_scale,w_997.jpg' },
+                    { width: 1007, src: './uploads/homepage/Business_Transformation_Conference_2024_1_ys618w_c_scale,w_1007.jpg' },
+                    { width: 1157, src: './uploads/homepage/Business_Transformation_Conference_2024_1_ys618w_c_scale,w_1157.jpg' },
+                    { width: 1298, src: './uploads/homepage/Business_Transformation_Conference_2024_1_ys618w_c_scale,w_1298.jpg' },
+                    { width: 1400, src: './uploads/homepage/Business_Transformation_Conference_2024_1_ys618w_c_scale,w_1400.jpg' }
+                ],
+                fallback: './uploads/homepage/Business Transformation Conference 2024_1.jpeg'
+            },
+            './uploads/homepage/Business Transformation Conference 2024_2.jpeg': {
+                sizes: [
+                    { width: 576, src: './uploads/homepage/Business_Transformation_Conference_2024_2_x26otg_c_scale,w_576.jpg' },
+                    { width: 832, src: './uploads/homepage/Business_Transformation_Conference_2024_2_x26otg_c_scale,w_832.jpg' },
+                    { width: 1081, src: './uploads/homepage/Business_Transformation_Conference_2024_2_x26otg_c_scale,w_1081.jpg' },
+                    { width: 1286, src: './uploads/homepage/Business_Transformation_Conference_2024_2_x26otg_c_scale,w_1286.jpg' },
+                    { width: 1400, src: './uploads/homepage/Business_Transformation_Conference_2024_2_x26otg_c_scale,w_1400.jpg' }
+                ],
+                fallback: './uploads/homepage/Business Transformation Conference 2024_2.jpeg'
+            },
+            './uploads/homepage/Agile Meetup at Dkatalis.jpeg': {
+                sizes: [
+                    { width: 515, src: './uploads/homepage/Agile_Meetup_at_Dkatalis_qfy0ib_c_scale,w_515.jpg' },
+                    { width: 987, src: './uploads/homepage/Agile_Meetup_at_Dkatalis_qfy0ib_c_scale,w_987.jpg' },
+                    { width: 1013, src: './uploads/homepage/Agile_Meetup_at_Dkatalis_qfy0ib_c_scale,w_1013.jpg' },
+                    { width: 1268, src: './uploads/homepage/Agile_Meetup_at_Dkatalis_qfy0ib_c_scale,w_1268.jpg' },
+                    { width: 1391, src: './uploads/homepage/Agile_Meetup_at_Dkatalis_qfy0ib_c_scale,w_1391.jpg' },
+                    { width: 1400, src: './uploads/homepage/Agile_Meetup_at_Dkatalis_qfy0ib_c_scale,w_1400.jpg' }
+                ],
+                fallback: './uploads/homepage/Agile Meetup at Dkatalis.jpeg'
+            },
+            './uploads/homepage/Agile Meetup at Dkatalis_2.jpeg': {
+                sizes: [
+                    { width: 674, src: './uploads/homepage/Agile_Meetup_at_Dkatalis_2_jow9f5_c_scale,w_674.jpg' },
+                    { width: 969, src: './uploads/homepage/Agile_Meetup_at_Dkatalis_2_jow9f5_c_scale,w_969.jpg' },
+                    { width: 1114, src: './uploads/homepage/Agile_Meetup_at_Dkatalis_2_jow9f5_c_scale,w_1114.jpg' },
+                    { width: 1327, src: './uploads/homepage/Agile_Meetup_at_Dkatalis_2_jow9f5_c_scale,w_1327.jpg' },
+                    { width: 1400, src: './uploads/homepage/Agile_Meetup_at_Dkatalis_2_jow9f5_c_scale,w_1400.jpg' }
+                ],
+                fallback: './uploads/homepage/Agile Meetup at Dkatalis_2.jpeg'
+            },
+            './uploads/homepage/pkmnid.jpg': {
+                sizes: [
+                    { width: 577, src: './uploads/homepage/pkmnid_cqgncc_c_scale,w_577.jpg' },
+                    { width: 882, src: './uploads/homepage/pkmnid_cqgncc_c_scale,w_882.jpg' },
+                    { width: 1128, src: './uploads/homepage/pkmnid_cqgncc_c_scale,w_1128.jpg' },
+                    { width: 1369, src: './uploads/homepage/pkmnid_cqgncc_c_scale,w_1369.jpg' },
+                    { width: 1400, src: './uploads/homepage/pkmnid_cqgncc_c_scale,w_1400.jpg' }
+                ],
+                fallback: './uploads/homepage/pkmnid.jpg'
+            },
+            './uploads/homepage/SITA.jpg': {
+                sizes: [
+                    { width: 424, src: './uploads/homepage/SITA_oqeczc_c_scale,w_424.jpg' },
+                    { width: 644, src: './uploads/homepage/SITA_oqeczc_c_scale,w_644.jpg' },
+                    { width: 805, src: './uploads/homepage/SITA_oqeczc_c_scale,w_805.jpg' },
+                    { width: 918, src: './uploads/homepage/SITA_oqeczc_c_scale,w_918.jpg' },
+                    { width: 1105, src: './uploads/homepage/SITA_oqeczc_c_scale,w_1105.jpg' },
+                    { width: 1280, src: './uploads/homepage/SITA_oqeczc_c_scale,w_1280.jpg' }
+                ],
+                fallback: './uploads/homepage/SITA.jpg'
             }
         };
 
@@ -1505,17 +1651,26 @@
             const scrollProgress = document.querySelector('.scroll-progress');
             const vignetteOverlay = document.querySelector('.vignette-overlay');
 
-            // Cache dimensions to avoid forced reflows on every scroll
-            let cachedScrollHeight = document.documentElement.scrollHeight;
-            let cachedClientHeight = document.documentElement.clientHeight;
-            let cachedMaxScroll = cachedScrollHeight - cachedClientHeight;
+            // Defer dimension caching to avoid forced reflow during initial render
+            let cachedScrollHeight = 0;
+            let cachedClientHeight = 0;
+            let cachedMaxScroll = 0;
 
-            // Update cached values on resize (not on every scroll)
-            window.addEventListener('resize', () => {
+            function updateCachedDimensions() {
                 cachedScrollHeight = document.documentElement.scrollHeight;
                 cachedClientHeight = document.documentElement.clientHeight;
                 cachedMaxScroll = cachedScrollHeight - cachedClientHeight;
-            }, { passive: true });
+            }
+
+            // Use requestIdleCallback if available, otherwise setTimeout
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(updateCachedDimensions);
+            } else {
+                setTimeout(updateCachedDimensions, 100);
+            }
+
+            // Update cached values on resize
+            window.addEventListener('resize', updateCachedDimensions, { passive: true });
 
             // Combined scroll handler with cached values
             window.addEventListener('scroll', () => {
