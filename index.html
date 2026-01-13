@@ -595,6 +595,25 @@
             box-shadow: none;
         }
 
+        /* Multi-slide carousels: images fill container */
+        .carousel-container.multi-slide .carousel-track {
+            height: 100%;
+        }
+
+        .carousel-container.multi-slide .carousel-slide {
+            height: 100%;
+        }
+
+        .carousel-container.multi-slide .carousel-slide .et_pb_image_wrap,
+        .carousel-container.multi-slide .carousel-slide picture {
+            height: 100%;
+        }
+
+        .carousel-container.multi-slide .carousel-slide img {
+            height: 100%;
+            object-fit: cover;
+        }
+
         .carousel-slide-overlay {
             position: absolute;
             top: 0;
@@ -1891,6 +1910,44 @@
 
                 // Only show controls if multiple slides
                 if (slides.length > 1) {
+                    // Add multi-slide class for object-fit: cover
+                    wrapper.classList.add('multi-slide');
+
+                    // Calculate max height from all images
+                    const images = slides.map(s => s.querySelector('img')).filter(Boolean);
+                    let loadedCount = 0;
+                    let maxHeight = 0;
+                    let maxAspectRatio = 0;
+
+                    const updateContainerHeight = () => {
+                        const containerWidth = wrapper.offsetWidth;
+                        wrapper.style.height = (containerWidth * maxAspectRatio) + 'px';
+                    };
+
+                    const checkAllLoaded = () => {
+                        loadedCount++;
+                        if (loadedCount === images.length) {
+                            images.forEach(img => {
+                                if (img.naturalHeight > maxHeight) {
+                                    maxHeight = img.naturalHeight;
+                                }
+                            });
+                            // Set container height based on first image's rendered width and max aspect ratio
+                            const containerWidth = wrapper.offsetWidth;
+                            const firstImg = images[0];
+                            const aspectRatio = maxHeight / firstImg.naturalWidth;
+                            wrapper.style.height = (containerWidth * aspectRatio) + 'px';
+                        }
+                    };
+
+                    images.forEach(img => {
+                        if (img.complete) {
+                            checkAllLoaded();
+                        } else {
+                            img.addEventListener('load', checkAllLoaded);
+                        }
+                    });
+
                     slides.forEach((_, index) => {
                         const dot = document.createElement('div');
                         dot.classList.add('dot');
