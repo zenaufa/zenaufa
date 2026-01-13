@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://zenaufa.id/sitemap.xml
