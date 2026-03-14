@@ -174,8 +174,8 @@
             --text-primary: #f0f0f0;
             --text-secondary: #aaaaaa;
             --bg-primary: #0a0a0a;
-            --accent-purple: #7c3aed;
-            --accent-purple-light: #a855f7;
+            --accent-purple: #4c2295;
+            --accent-purple-light: #793bb3;
         }
 
         /* ============================
@@ -252,13 +252,16 @@
         .hero-content {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: stretch;
             gap: 4rem;
             width: 100%;
         }
 
         .hero-text {
             flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
             animation: slideLeft 1.2s cubic-bezier(0.19, 1, 0.22, 1);
         }
 
@@ -270,7 +273,14 @@
 
         .hero-image {
             flex: 1;
+            display: flex;
+            align-items: flex-end;
             /* Removed animation to prevent blocking LCP render */
+        }
+
+        .hero-image .et_pb_image_wrap {
+            display: block;
+            line-height: 0;
         }
 
         .hero-image img {
@@ -279,6 +289,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+            transform-origin: bottom center;
         }
 
         .hero-image img:hover {
@@ -815,13 +826,347 @@
         }
 
         /* ============================
+           CONNECT BUTTON
+           ============================ */
+        .connect-btn {
+            display: inline-flex;
+            align-items: center;
+            align-self: flex-start;
+            gap: 10px;
+            margin-top: 1.5rem;
+            padding: 14px 32px;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-family: 'Overpass', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 0px 20px rgba(124, 124, 237, 0.5);
+            border: none;
+            cursor: pointer;
+        }
+
+        .connect-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 35px rgba(124, 58, 237, 0.5);
+        }
+
+        .connect-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        /* ============================
+           HERO TESTIMONIAL CAROUSEL
+           ============================ */
+        .hero-testimonial-carousel {
+            margin-top: 1.5rem;
+            position: relative;
+            width: 100%;
+            max-width: 520px;
+            overflow: hidden;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .testimonial-card {
+            min-width: 100%;
+            flex: 0 0 100%;
+            padding: 24px;
+            box-sizing: border-box;
+        }
+
+        .testimonial-quote {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 16px;
+            font-style: italic;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .testimonial-quote::before {
+            content: '\201C';
+            font-size: 2rem;
+            color: var(--accent-purple-light);
+            font-family: Georgia, serif;
+            line-height: 1;
+            margin-right: 4px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-purple-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .testimonial-info h4 {
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            margin: 0 0 2px 0;
+            font-weight: 600;
+        }
+
+        .testimonial-info p {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .testimonial-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .testimonial-link:hover {
+            opacity: 0.9;
+        }
+
+        .testimonial-link:hover .testimonial-linkedin-badge {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .testimonial-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 0 24px 16px;
+        }
+
+        .testimonial-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            padding: 0;
+        }
+
+        .testimonial-dot.active {
+            background: var(--accent-purple-light);
+            transform: scale(1.4);
+        }
+
+        .testimonial-linkedin-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0 24px 16px;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .testimonial-linkedin-badge svg {
+            width: 14px;
+            height: 14px;
+            fill: #0A66C2;
+        }
+
+        /* ============================
            RESPONSIVE DESIGN
            ============================ */
-        @media (max-width: 768px) {
+        @media (max-width: 1280px) {
             .hero-content {
                 flex-direction: column;
                 text-align: center;
-                gap: 2rem;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            .hero-text {
+                align-items: center;
+            }
+
+            .hero-image {
+                max-width: 50%;
+            }
+
+            .connect-btn {
+                align-self: center;
+            }
+
+            .hero-testimonial-carousel {
+                max-width: 520px;
+            }
+
+            .testimonial-card {
+                text-align: left;
+            }
+
+            .testimonial-author {
+                text-align: left;
+            }
+
+            .testimonial-info h4,
+            .testimonial-info p {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 100vh;
+                min-height: 100dvh;
+                padding: 2% 0 40px;
+            }
+
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.6rem;
+            }
+
+            .hero-image {
+                max-height: 35vh;
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+            }
+
+            .hero-image img,
+            .hero-image .et_pb_image_wrap {
+                max-height: 35vh;
+                width: auto;
+                object-fit: contain;
+            }
+
+            .hero-text {
+                width: 100%;
+                min-width: 0;
+                overflow: hidden;
+            }
+
+            .hero-text h1 {
+                font-size: 28px;
+                margin-bottom: 0.3rem;
+            }
+
+            .animated-text {
+                font-size: 1rem;
+                margin: 0.3rem 0;
+                min-height: 1.5em;
+            }
+
+            .connect-btn {
+                margin: 0.6rem auto 0.8rem;
+                padding: 10px 24px;
+                font-size: 0.85rem;
+            }
+
+            .hero-testimonial-carousel {
+                margin-top: 0.6rem;
+                max-width: 100%;
+                width: 100%;
+                border-radius: 12px;
+            }
+
+            .testimonial-track {
+                width: 100%;
+            }
+
+            .testimonial-card {
+                min-width: 100%;
+                max-width: 100%;
+                padding: 14px 14px;
+            }
+
+            .testimonial-quote {
+                font-size: 0.75rem;
+                line-height: 1.5;
+                margin-bottom: 10px;
+                -webkit-line-clamp: 3;
+                line-clamp: 3;
+            }
+
+            .testimonial-quote::before {
+                font-size: 1.4rem;
+            }
+
+            .testimonial-avatar {
+                width: 32px;
+                height: 32px;
+                font-size: 0.75rem;
+            }
+
+            .testimonial-info h4 {
+                font-size: 0.75rem;
+            }
+
+            .testimonial-info p {
+                font-size: 0.65rem;
+            }
+
+            .testimonial-nav {
+                padding: 0 14px 10px;
+                gap: 4px;
+            }
+
+            .testimonial-dot {
+                width: 5px;
+                height: 5px;
+            }
+
+            .testimonial-linkedin-badge {
+                padding: 0 14px 10px;
+                font-size: 0.6rem;
+            }
+
+            .testimonial-linkedin-badge svg {
+                width: 12px;
+                height: 12px;
+            }
+
+            .scroll-arrow {
+                bottom: 10px;
+            }
+
+            .scroll-arrow img {
+                width: 30px;
+                height: 30px;
             }
 
             .experience-item {
@@ -844,10 +1189,6 @@
 
             .container {
                 width: 90%;
-            }
-
-            .hero-text h1 {
-                font-size: 40px;
             }
 
             .section {
@@ -891,6 +1232,15 @@
                 <div class="hero-text">
                     <h1>Zen Aufa Bahalwan</h1>
                     <div class="animated-text" id="role-text">Tech Delivery Lead at Okadoc, UAE</div>
+                    <a href="https://linkedin.com/in/zenaufa" target="_blank" rel="noopener noreferrer"
+                        class="connect-btn" id="connect-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                        Connect with Me
+                    </a>
+                    <div class="hero-testimonial-carousel" id="hero-testimonial-carousel"></div>
                 </div>
             </div>
         </div>
@@ -1479,6 +1829,136 @@
             }
         ];
 
+        // Testimonial Data (LinkedIn Recommendations)
+        const testimonialData = [
+            {
+                name: "Nicolás De Los Ríos",
+                title: "Product Strategist, SeQura",
+                image: "./uploads/homepage/Nico.jpeg",
+                text: "Zen was an awesome Scrum master and tech delivery Lead I can comfortably talk and work with. He taught me to have a better communication with the team, and how to best interact when working asynchronously with 8+ hours if time difference. He made our lives much simpler than what I could have ever imagined and experienced before."
+            },
+            {
+                name: "Elan Qisthi",
+                title: "Senior Software Engineer",
+                image: "./uploads/homepage/Elan.jpeg",
+                text: "Zen is one of the kindest and most enjoyable people with whom I've worked. His work as Scrum Master has been exceptional and positively impacts our team's productivity and cohesion. His skills in effective communication, managing conflicts, and prioritizing tasks have been instrumental in keeping our team focused and on track."
+            },
+            {
+                name: "Satria Hafizh R. Harsono",
+                title: "Software Engineer and Tech Lead",
+                image: "./uploads/homepage/Satria.jpeg",
+                text: "Zen brought some enjoyable scrum moments with tons of game and cool rules. During working in Okadoc, the time I always waiting for was when Zen take over the game. Because of that, I now understand very well the real meaning of each scrum ritual we had."
+            },
+            {
+                name: "Mevi Hariyanti",
+                title: "Enterprise Software Sales Leader",
+                image: "./uploads/homepage/Mevi.jpeg",
+                text: "Zen is one of \"Zen\" guy I ever know, He has strong analytical skill, deep thought and empathy. Working with him is always fun, he fully support me with his knowledge and skill. He is funny guy, and like something cute like rabbit :), but also thoughtful inside."
+            },
+            {
+                name: "Ley Lani Soeprapto",
+                title: "HR Business Unit, Author & Certified Life Coach",
+                image: "./uploads/homepage/Ley.jpeg",
+                text: "It's very easy to interact with him and have an outstanding communication capability. He has contributed on many critical transformations of LinkAja SDLC, boost productivity team, act as mediator between multiple stakeholders and initiate squad implementation. It's definitely an honor to have the collaboration experience with him."
+            },
+            {
+                name: "Aulia Malitasari",
+                title: "QA Engineer | Business Development & Partnerships",
+                image: "./uploads/homepage/Aulia.jpeg",
+                text: "Zen is excellent! Two of the key personality a scrum master needs are an empathy and a listening skill. He knows how to give a constructive feedback when needed and when he only needs to listen carefully. This grows team's trust and a fuel to a better collaboration."
+            },
+            {
+                name: "Muhammad Dary Azhari",
+                title: "Software Engineer II - iOS at Luno",
+                image: "./uploads/homepage/Dary.jpeg",
+                text: "As a Scrum Master, Zen is patient and kind. With humility he can be relied on in resolving problems and conflicts in the sprint."
+            },
+            {
+                name: "Fajar Adhi Sudarnomo",
+                title: "Quality Assurance Specialist",
+                image: "./uploads/homepage/Fajar.jpeg",
+                text: "Zen is Friendly and also open-minded person, able to discuss work cycle and good mentor, he teaches Scrum to me and adapts new environment very fast! Glad to know him as colleague and as a friend :)"
+            },
+            {
+                name: "Ivan Kristianto",
+                title: "iOS Developer at OVO",
+                image: "./uploads/homepage/Ivan.jpeg",
+                text: "Zen is a good partner as scrum master in team. He manage multiple project so well with his responsibility. He is patient in his work and do his job done. He is really down to earth. Recommended player in the team especially in start up group."
+            },
+            {
+                name: "Eric Wijaya",
+                title: "Android Engineer",
+                image: "./uploads/homepage/Eric.jpeg",
+                text: "Zen is very diligent and have good communication with all team so problem or ticket can be solved quickly."
+            },
+            {
+                name: "Adriyadi Savana",
+                title: "Android Engineer",
+                image: "./uploads/homepage/Adri.jpeg",
+                text: "Zen Aufa young talented scrum master, he has good communication, focus on work, good individuals and also team work. He can manage project is very well and him have character good as well. Fun to work with him."
+            },
+            {
+                name: "Fachdian Ian",
+                title: "Agile Coach | Certified PSM™ II",
+                image: "./uploads/homepage/Fachdian.jpeg",
+                text: "Zen is a good scrum master, can always condition the team, zen have good scrum knowledge. You can definitely work together with him, because he is very friendly."
+            },
+            {
+                name: "Muhammad Yusuf",
+                title: "iOS Developer",
+                image: "./uploads/homepage/Yusuf.jpeg",
+                text: "Zen is a gentle person, his passion in helping the project is not only worth one thumb but four thumbs up. Any difficulties associated with communication in the project can be helped quickly and precisely by him. Zen is the youngest and best scrum master."
+            },
+            {
+                name: "Femi Aprina",
+                title: "Freelance",
+                image: "./uploads/homepage/Femi.jpeg",
+                text: "I found him to be consistently pleasant, tackling all assignment with dedication and smile. Though he was an asset to our IT efforts, Zen was also extraordinarily helpful in other areas of the company. Zen is a team player and would make a great asset to any organization."
+            }
+        ];
+
+        /**
+         * Renders the testimonial carousel in the hero section
+         */
+        function renderTestimonialCarousel() {
+            const container = document.getElementById('hero-testimonial-carousel');
+            if (!container || testimonialData.length === 0) return;
+
+            const cardsHTML = testimonialData.map(t => {
+                const initials = t.name.split(' ').map(n => n[0]).join('').slice(0, 2);
+                const avatarHTML = t.image
+                    ? `<div class="testimonial-avatar"><img src="${t.image}" alt="${t.name}" loading="lazy"></div>`
+                    : `<div class="testimonial-avatar">${initials}</div>`;
+                return `
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">${t.text}</div>
+                        <div class="testimonial-author">
+                            ${avatarHTML}
+                            <div class="testimonial-info">
+                                <h4>${t.name}</h4>
+                                <p>${t.title}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            const dotsHTML = testimonialData.map((_, i) =>
+                `<button class="testimonial-dot${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="Go to testimonial ${i + 1}"></button>`
+            ).join('');
+
+            container.innerHTML = `
+                <a href="https://www.linkedin.com/in/zenaufa/details/recommendations/" target="_blank" rel="noopener noreferrer" class="testimonial-link">
+                    <div class="testimonial-track" id="testimonial-track">${cardsHTML}</div>
+                    <div class="testimonial-nav">${dotsHTML}</div>
+                    <div class="testimonial-linkedin-badge">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        View all on LinkedIn →
+                    </div>
+                </a>
+            `;
+        }
+
         // ===========================================
         // RENDER FUNCTIONS - Generates HTML from data
         // ===========================================
@@ -1587,6 +2067,8 @@
             if (actList) {
                 activitiesData.forEach(item => actList.appendChild(renderItem(item)));
             }
+
+            renderTestimonialCarousel();
         }
 
         // Render content immediately
@@ -1969,6 +2451,53 @@
             }
 
             document.querySelectorAll('.carousel-container').forEach(setupCarousel);
+
+            // ===========================================
+            // TESTIMONIAL AUTO-SLIDE
+            // ===========================================
+
+            const testimonialCarousel = document.getElementById('hero-testimonial-carousel');
+            if (testimonialCarousel) {
+                const tTrack = document.getElementById('testimonial-track');
+                const tDots = testimonialCarousel.querySelectorAll('.testimonial-dot');
+                let currentTestimonial = 0;
+                let testimonialTimer = null;
+                const totalTestimonials = tDots.length;
+
+                function goToTestimonial(index) {
+                    currentTestimonial = index;
+                    tTrack.style.transform = `translateX(-${currentTestimonial * 100}%)`;
+                    tDots.forEach(d => d.classList.remove('active'));
+                    tDots[currentTestimonial].classList.add('active');
+                }
+
+                function nextTestimonial() {
+                    goToTestimonial((currentTestimonial + 1) % totalTestimonials);
+                }
+
+                function startAutoSlide() {
+                    testimonialTimer = setInterval(nextTestimonial, 5000);
+                }
+
+                function stopAutoSlide() {
+                    clearInterval(testimonialTimer);
+                }
+
+                tDots.forEach(dot => {
+                    dot.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        stopAutoSlide();
+                        goToTestimonial(parseInt(dot.dataset.index));
+                        startAutoSlide();
+                    });
+                });
+
+                testimonialCarousel.addEventListener('mouseenter', stopAutoSlide);
+                testimonialCarousel.addEventListener('mouseleave', startAutoSlide);
+
+                startAutoSlide();
+            }
 
             // ===========================================
             // VIEWPORT VISIBILITY TRACKING (Cached to avoid forced reflows)
