@@ -262,13 +262,15 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            animation: slideLeft 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+            animation: slideLeft 1.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .hero-text h1 {
             font-size: 50px;
             margin-bottom: 1rem;
-            animation: slideTop 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+            animation: slideTop 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+            animation-delay: 0.15s;
+            animation-fill-mode: backwards;
         }
 
         .hero-image {
@@ -417,8 +419,8 @@
             margin: 1rem 0;
             font-size: 1.2rem;
             opacity: 0;
-            animation: initialFadeIn 1s ease-out forwards;
-            animation-delay: 1s;
+            animation: initialFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: 0.5s;
         }
 
         /* CLS fix: Reserve space for experience items before JS loads */
@@ -731,7 +733,7 @@
         @keyframes initialFadeIn {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(10px);
             }
 
             to {
@@ -764,7 +766,7 @@
         @keyframes slideLeft {
             from {
                 opacity: 0;
-                transform: translateX(-100px);
+                transform: translateX(-40px);
             }
 
             to {
@@ -776,7 +778,7 @@
         @keyframes slideRight {
             from {
                 opacity: 0;
-                transform: translateX(100px);
+                transform: translateX(40px);
             }
 
             to {
@@ -788,7 +790,7 @@
         @keyframes slideTop {
             from {
                 opacity: 0;
-                transform: translateY(-50px);
+                transform: translateY(-20px);
             }
 
             to {
@@ -874,6 +876,9 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
         .testimonial-track {
@@ -961,6 +966,17 @@
 
         .testimonial-link:hover {
             opacity: 0.9;
+        }
+
+        .testimonial-linkedin-badge-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s ease;
+        }
+
+        .testimonial-linkedin-badge-link:hover {
+            opacity: 0.8;
         }
 
         .testimonial-link:hover .testimonial-linkedin-badge {
@@ -1839,19 +1855,19 @@
             },
             {
                 name: "Elan Qisthi",
-                title: "Senior Software Engineer",
+                title: "Senior Software Engineer, Grab",
                 image: "./uploads/homepage/Elan.jpeg",
                 text: "Zen is one of the kindest and most enjoyable people with whom I've worked. His work as Scrum Master has been exceptional and positively impacts our team's productivity and cohesion. His skills in effective communication, managing conflicts, and prioritizing tasks have been instrumental in keeping our team focused and on track."
             },
             {
                 name: "Satria Hafizh R. Harsono",
-                title: "Software Engineer and Tech Lead",
+                title: "Software Engineer and Tech Lead, Alterra",
                 image: "./uploads/homepage/Satria.jpeg",
                 text: "Zen brought some enjoyable scrum moments with tons of game and cool rules. During working in Okadoc, the time I always waiting for was when Zen take over the game. Because of that, I now understand very well the real meaning of each scrum ritual we had."
             },
             {
                 name: "Mevi Hariyanti",
-                title: "Enterprise Software Sales Leader",
+                title: "Enterprise Software Sales Leader, Hukumonline.com",
                 image: "./uploads/homepage/Mevi.jpeg",
                 text: "Zen is one of \"Zen\" guy I ever know, He has strong analytical skill, deep thought and empathy. Working with him is always fun, he fully support me with his knowledge and skill. He is funny guy, and like something cute like rabbit :), but also thoughtful inside."
             },
@@ -1948,9 +1964,9 @@
             ).join('');
 
             container.innerHTML = `
-                <a href="https://www.linkedin.com/in/zenaufa/details/recommendations/" target="_blank" rel="noopener noreferrer" class="testimonial-link">
-                    <div class="testimonial-track" id="testimonial-track">${cardsHTML}</div>
-                    <div class="testimonial-nav">${dotsHTML}</div>
+                <div class="testimonial-track" id="testimonial-track">${cardsHTML}</div>
+                <div class="testimonial-nav">${dotsHTML}</div>
+                <a href="https://www.linkedin.com/in/zenaufa/details/recommendations/" target="_blank" rel="noopener noreferrer" class="testimonial-linkedin-badge-link">
                     <div class="testimonial-linkedin-badge">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                         View all on LinkedIn →
@@ -2463,8 +2479,11 @@
                 let currentTestimonial = 0;
                 let testimonialTimer = null;
                 const totalTestimonials = tDots.length;
+                const SLIDE_INTERVAL = 5000;
 
                 function goToTestimonial(index) {
+                    if (index < 0) index = totalTestimonials - 1;
+                    if (index >= totalTestimonials) index = 0;
                     currentTestimonial = index;
                     tTrack.style.transform = `translateX(-${currentTestimonial * 100}%)`;
                     tDots.forEach(d => d.classList.remove('active'));
@@ -2476,12 +2495,26 @@
                 }
 
                 function startAutoSlide() {
-                    testimonialTimer = setInterval(nextTestimonial, 5000);
+                    stopAutoSlide();
+                    testimonialTimer = setTimeout(function tick() {
+                        nextTestimonial();
+                        testimonialTimer = setTimeout(tick, SLIDE_INTERVAL);
+                    }, SLIDE_INTERVAL);
                 }
 
                 function stopAutoSlide() {
-                    clearInterval(testimonialTimer);
+                    clearTimeout(testimonialTimer);
+                    testimonialTimer = null;
                 }
+
+                // Pause when tab is hidden, resume when visible
+                document.addEventListener('visibilitychange', () => {
+                    if (document.hidden) {
+                        stopAutoSlide();
+                    } else {
+                        startAutoSlide();
+                    }
+                });
 
                 tDots.forEach(dot => {
                     dot.addEventListener('click', (e) => {
@@ -2491,6 +2524,24 @@
                         goToTestimonial(parseInt(dot.dataset.index));
                         startAutoSlide();
                     });
+                });
+
+                // Click left half = prev, right half = next
+                testimonialCarousel.addEventListener('click', (e) => {
+                    // Don't intercept clicks on the LinkedIn badge link or dots
+                    if (e.target.closest('.testimonial-linkedin-badge-link') || e.target.closest('.testimonial-dot')) return;
+
+                    const rect = testimonialCarousel.getBoundingClientRect();
+                    const clickX = e.clientX - rect.left;
+                    const halfWidth = rect.width / 2;
+
+                    stopAutoSlide();
+                    if (clickX < halfWidth) {
+                        goToTestimonial(currentTestimonial - 1);
+                    } else {
+                        goToTestimonial(currentTestimonial + 1);
+                    }
+                    startAutoSlide();
                 });
 
                 testimonialCarousel.addEventListener('mouseenter', stopAutoSlide);
