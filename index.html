@@ -1311,6 +1311,14 @@
         // ===========================================
 
         const RESPONSIVE_IMAGES = {
+            './uploads/homepage/Microsoft Certified AI Apps and Agents Developer.webp': {
+                sizes: [
+                    { width: 480, src: './uploads/homepage/microsoft-certified-ai-apps-and-agents-developer-612x420.webp' },
+                    { width: 980, src: './uploads/homepage/microsoft-certified-ai-apps-and-agents-developer-612x420.webp' },
+                    { width: 1024, src: './uploads/homepage/microsoft-certified-ai-apps-and-agents-developer-971x666.webp' }
+                ],
+                fallback: './uploads/homepage/Microsoft Certified AI Apps and Agents Developer.webp'
+            },
             './uploads/homepage/IMG_20240314_224245_294.jpg': {
                 sizes: [
                     { width: 480, src: './uploads/homepage/IMG_20240314_224245_294-480x416.jpg', webp: './uploads/homepage/IMG_20240314_224245_294-480x416.jpg.webp' },
@@ -1681,6 +1689,14 @@
 
         // Training & Certification Data
         const trainingData = [
+            {
+                title: "Microsoft Certified: Azure AI Apps and Agents Developer Associate",
+                company: "Microsoft",
+                year: "2026",
+                images: [
+                    { src: "./uploads/homepage/Microsoft Certified AI Apps and Agents Developer.webp", alt: "Microsoft Certified: Azure AI Apps and Agents Developer Associate" }
+                ]
+            },
             {
                 title: "SAFe 6 Agilist",
                 company: "Scaled Agile, Inc.",
