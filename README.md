@@ -12,6 +12,7 @@
 <h2> My badges </h2>
 <p align="center">
   <!--START_SECTION:badges-->
+<a href="https://learn.microsoft.com/api/credentials/share/en-us/zenaufa/63C19E2A56A4E205?sharingId=68F24E5ACC492028" title="Microsoft Certified AI Apps and Agent Developer"><img src="https://images.credly.com/size/160x160/images/208eb873-907f-4276-b33d-7b3ea878d466/converted20260822-8-2swbl9.png" alt="Microsoft Certified AI Apps and Agent Developer" width="80" height="80"></a>
 <a href="https://www.credly.com/badges/6436168c-d6bb-4bd8-b51f-60a379ff8d71" title="Professional Scrum Master™ II (PSM II)"><img src="https://images.credly.com/size/80x80/images/d90cc9bc-3e9a-49b2-ac09-7930db400e32/image.png" alt="Professional Scrum Master™ II (PSM II)" width="80" height="80"></a>
 <a href="https://www.credly.com/badges/705ebfb8-2401-4edd-a2cd-55b73600f369" title="Professional Scrum Master™ I (PSM I)"><img src="https://images.credly.com/size/80x80/images/a2790314-008a-4c3d-9553-f5e84eb359ba/image.png" alt="Professional Scrum Master™ I (PSM I)" width="80" height="80"></a>
 <a href="https://www.credly.com/badges/a53f0089-2e3f-4741-9b64-83342c17fbf6" title="Agile Coaching"><img src="https://images.credly.com/size/80x80/images/5c50a643-ef0f-4bea-9c90-6fe2e785a1c8/image.png" alt="Agile Coaching" width="80" height="80"></a>
